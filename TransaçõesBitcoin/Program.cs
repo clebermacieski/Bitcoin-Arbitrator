@@ -15,7 +15,7 @@ namespace transacoes_nbitcoin
 
         static void Main(string[] args)
         {
-            //retornaInfoTransacao();
+            // retornaInfoTransacao();
             Gastar();
 
         }
