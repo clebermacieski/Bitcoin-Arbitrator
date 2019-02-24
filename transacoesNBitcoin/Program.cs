@@ -26,7 +26,7 @@ namespace transacoes_nbitcoin
 
             String txIdOrigem = "39f2fa57c3620ee44724244c2747d79ce6d392a54fdf637ab969911763deaa61"; // Transação de 0.01995480 enviados a mim mesmo
 
-            String enderecoDestino = "mwGYn4JXyjXXtLVsJJNDKRYS95vSG6dY3o"; //Enviado do meu programa.
+            String enderecoDestino = "mwGYn4JXyjXXtLVsJJNDKRYS95vSG6dY3o"; //Transação Enviado do meu programa.
 
             gastador.gastar(txIdOrigem , enderecoDestino);
         }
