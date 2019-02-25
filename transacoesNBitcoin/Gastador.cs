@@ -1,5 +1,6 @@
 ﻿using NBitcoin;
 using QBitNinja.Client;
+using QBitNinja.Client.Models;
 using System;
 using System.Text;
 
@@ -22,6 +23,8 @@ namespace transacoes_nbitcoin
             var client = new QBitNinjaClient(rede);
             var transactionId = uint256.Parse(txIdOrigem);
             var transactionResponse = client.GetTransaction(transactionId).Result; //?
+
+            
 
             //Verifica outpoints da transação que gastarei
             var receivedCoins = transactionResponse.ReceivedCoins;
@@ -80,16 +83,30 @@ namespace transacoes_nbitcoin
             //Assinando a transação
 
             //Pegando pubkey script do endereço de origem
-            var endereco = BitcoinAddress.Create(txIdOrigem, rede);
-            transacao.Inputs[0].ScriptSig = endereco.ScriptPubKey;
+            transacao.Inputs[0].ScriptSig = bitcoinPrivateKey.ScriptPubKey;
 
             //assinando com a private key referente ao pubkey script da origem
             transacao.Sign(bitcoinPrivateKey, receivedCoins.ToArray());
 
-            Console.WriteLine(transacao);
+            Console.WriteLine("\n" + transacao);
 
 
             //Propagar a transação...
+
+            BroadcastResponse broadcastResponse = client.Broadcast(transacao).Result;
+
+            if (!broadcastResponse.Success)
+            {
+                Console.Error.WriteLine("ErrorCode: " + broadcastResponse.Error.ErrorCode);
+                Console.Error.WriteLine("Error message: " + broadcastResponse.Error.Reason);
+            }
+            else
+            {
+                Console.WriteLine("Success! You can check out the hash of the transaciton in any block explorer:");
+                Console.WriteLine(transacao.GetHash());
+                return true;
+            }
+
             return false;
         }
     }
