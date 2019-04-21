@@ -1,4 +1,5 @@
 ﻿using ArbitroBitcoin.Models;
+using ArbitroBitcoin.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,8 +22,8 @@ namespace ArbitroBitcoin.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" }
+                new HomeMenuItem {Id = MenuItemType.Browse, Title=AppResources.ArbitroBitcoin },
+                new HomeMenuItem {Id = MenuItemType.About, Title=AppResources.Sobre }
             };
 
             ListViewMenu.ItemsSource = menuItems;
