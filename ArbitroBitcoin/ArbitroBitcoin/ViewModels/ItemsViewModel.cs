@@ -7,6 +7,7 @@ using Xamarin.Forms;
 
 using ArbitroBitcoin.Models;
 using ArbitroBitcoin.Views;
+using ArbitroBitcoin.Resources;
 
 namespace ArbitroBitcoin.ViewModels
 {
@@ -17,7 +18,7 @@ namespace ArbitroBitcoin.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = AppResources.ArbitroBitcoin;
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
