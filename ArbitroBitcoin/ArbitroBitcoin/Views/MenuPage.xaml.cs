@@ -23,6 +23,9 @@ namespace ArbitroBitcoin.Views
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem {Id = MenuItemType.Browse, Title=AppResources.ArbitroBitcoin },
+                new HomeMenuItem {Id = MenuItemType.Receber, Title=AppResources.Receber },
+                new HomeMenuItem {Id = MenuItemType.Enviar, Title=AppResources.Enviar },
+                new HomeMenuItem {Id = MenuItemType.Arbitrar, Title=AppResources.Arbitrar },
                 new HomeMenuItem {Id = MenuItemType.About, Title=AppResources.Sobre }
             };
 

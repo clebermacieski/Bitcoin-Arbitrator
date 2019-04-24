@@ -61,11 +61,38 @@ namespace ArbitroBitcoin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Arbitrar.
+        /// </summary>
+        internal static string Arbitrar {
+            get {
+                return ResourceManager.GetString("Arbitrar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Árbitro Bitcoin.
         /// </summary>
         internal static string ArbitroBitcoin {
             get {
                 return ResourceManager.GetString("ArbitroBitcoin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enviar.
+        /// </summary>
+        internal static string Enviar {
+            get {
+                return ResourceManager.GetString("Enviar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Receber.
+        /// </summary>
+        internal static string Receber {
+            get {
+                return ResourceManager.GetString("Receber", resourceCulture);
             }
         }
         

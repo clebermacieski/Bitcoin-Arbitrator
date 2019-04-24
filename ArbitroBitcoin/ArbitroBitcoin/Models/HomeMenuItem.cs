@@ -6,8 +6,11 @@ namespace ArbitroBitcoin.Models
 {
     public enum MenuItemType
     {
-        Browse,
-        About
+        Browse
+       , Receber
+       , Enviar
+       , Arbitrar
+       , About
     }
     public class HomeMenuItem
     {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArbitroBitcoin.Resources;
+using System;
 using System.Windows.Input;
 
 using Xamarin.Forms;
@@ -9,7 +10,7 @@ namespace ArbitroBitcoin.ViewModels
     {
         public AboutViewModel()
         {
-            Title = "About";
+            Title = AppResources.Sobre;
 
             OpenWebCommand = new Command(() => Device.OpenUri(new Uri("https://xamarin.com/platform")));
         }

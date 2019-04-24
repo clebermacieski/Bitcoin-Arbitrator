@@ -117,8 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Arbitrar" xml:space="preserve">
+    <value>Arbitrar</value>
+  </data>
   <data name="ArbitroBitcoin" xml:space="preserve">
     <value>Árbitro Bitcoin</value>
+  </data>
+  <data name="Enviar" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
+  <data name="Receber" xml:space="preserve">
+    <value>Receber</value>
   </data>
   <data name="Sobre" xml:space="preserve">
     <value>Sobre</value>
