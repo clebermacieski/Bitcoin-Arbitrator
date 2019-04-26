@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace ArbitroBitcoin.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ReceberPage : ContentView
+    public partial class ReceberPage : ContentPage
     {
         public ReceberPage()
         {
