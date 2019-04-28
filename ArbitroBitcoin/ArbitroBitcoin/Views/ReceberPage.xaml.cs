@@ -18,13 +18,12 @@ namespace ArbitroBitcoin.Views
             InitializeComponent();
 
             gerarEndereco.Text = AppResources.GerarEndereco;
-            enderecoRecebimento.Text = AppResources.EnderecodeRecebimento;
+            //enderecoRecebimento.Text = AppResources.EnderecodeRecebimento;
         }
 
-        void OnGerarEnderecoButtonClicked(object sender, EventArgs e)
+        /*void OnGerarEnderecoButtonClicked(object sender, EventArgs e)
         {
             //DisplayAlert("Alert", "Botão clicado", "OK");
-
-        }
+        }*/
     }
 }
