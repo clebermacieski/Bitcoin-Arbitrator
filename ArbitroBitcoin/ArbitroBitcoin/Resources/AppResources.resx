@@ -123,8 +123,14 @@
   <data name="ArbitroBitcoin" xml:space="preserve">
     <value>Árbitro Bitcoin</value>
   </data>
+  <data name="EnderecodeRecebimento" xml:space="preserve">
+    <value>Endereço de Recebimento</value>
+  </data>
   <data name="Enviar" xml:space="preserve">
     <value>Enviar</value>
+  </data>
+  <data name="GerarEndereco" xml:space="preserve">
+    <value>Gerar Endereço</value>
   </data>
   <data name="Receber" xml:space="preserve">
     <value>Receber</value>
