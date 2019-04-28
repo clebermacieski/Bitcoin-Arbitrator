@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArbitroBitcoin.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -10,14 +11,14 @@ namespace ArbitroBitcoin.ViewModels
 {
     class ReceberViewModel : INotifyPropertyChanged
     {
-        int enderecoRecebimento = 1;
+        string enderecoRecebimento;
         public event PropertyChangedEventHandler PropertyChanged;
         public ReceberViewModel()
         {
-            RetornaEnderecoCommand = new Command(() => EnderecoRecebimento *= 2);
+            RetornaEnderecoCommand = new Command(() => EnderecoRecebimento = Negociar.Receber());
         }
 
-        public int EnderecoRecebimento
+        public string EnderecoRecebimento
         {
             set
             {
