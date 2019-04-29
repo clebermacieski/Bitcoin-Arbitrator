@@ -14,5 +14,14 @@ namespace ArbitroBitcoin.Services
             BitcoinPubKeyAddress endereco = chavePublica.GetAddress(Network.TestNet);
             return endereco.ToString();
         }
+
+        internal static void Enviar(string enderecoDestino, double valor)
+        {
+            throw new NotImplementedException();
+        }
+        internal static void Enviar(string enderecoDestino, double valor, string enderecoArbitro)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,14 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ArbitroBitcoin.ViewModels"
              x:Class="ArbitroBitcoin.Views.EnviarPage"
              Title="Enviar">
+    <ContentPage.BindingContext>
+        <local:EnviarViewModel/>
+    </ContentPage.BindingContext>
+    
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center">
-            <Entry x:Name="enderecoDestinoEntry" />
-            <Entry x:Name="valorEntry" />
-            <Entry x:Name="arbitroEntry" />
-            <Button x:Name="enviarButton"/>
+            <Entry x:Name="enderecoDestinoEntry"
+                   Text="{Binding EnderecoDestino}"/>
+            <Entry x:Name="valorEntry" 
+                   Text="{Binding Valor}"/>
+            <Entry x:Name="enderecoArbitroEntry" 
+                   Text="{Binding EnderecoArbitro}"/>
+            <Button x:Name="enviarButton"
+                    Command="RealizarTransacaoCommand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
