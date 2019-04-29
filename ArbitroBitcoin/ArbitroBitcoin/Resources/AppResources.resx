@@ -126,6 +126,9 @@
   <data name="EnderecodeRecebimento" xml:space="preserve">
     <value>Endereço de Recebimento</value>
   </data>
+  <data name="EnderecoDestino" xml:space="preserve">
+    <value>Endereço de Destino</value>
+  </data>
   <data name="Enviar" xml:space="preserve">
     <value>Enviar</value>
   </data>
@@ -137,5 +140,11 @@
   </data>
   <data name="Sobre" xml:space="preserve">
     <value>Sobre</value>
+  </data>
+  <data name="Valor" xml:space="preserve">
+    <value>Valor</value>
+  </data>
+  <data name="Arbitro" xml:space="preserve">
+    <value>Árbitro</value>
   </data>
 </root>

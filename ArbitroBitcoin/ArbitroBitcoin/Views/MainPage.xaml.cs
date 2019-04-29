@@ -36,7 +36,7 @@ namespace ArbitroBitcoin.Views
                         MenuPages.Add(id, new NavigationPage(new ReceberPage()));
                         break;
                     case (int)MenuItemType.Enviar:
-
+                        MenuPages.Add(id, new NavigationPage(new EnviarPage()));
                         break;
                     case (int)MenuItemType.Arbitrar:
                         //MenuPages.Add(id, new NavigationPage(new ArbitrarPage()));

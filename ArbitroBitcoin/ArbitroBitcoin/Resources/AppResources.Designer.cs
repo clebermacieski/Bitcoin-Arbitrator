@@ -70,6 +70,15 @@ namespace ArbitroBitcoin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Árbitro.
+        /// </summary>
+        internal static string Arbitro {
+            get {
+                return ResourceManager.GetString("Arbitro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Árbitro Bitcoin.
         /// </summary>
         internal static string ArbitroBitcoin {
@@ -84,6 +93,15 @@ namespace ArbitroBitcoin.Resources {
         internal static string EnderecodeRecebimento {
             get {
                 return ResourceManager.GetString("EnderecodeRecebimento", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Endereço de Destino.
+        /// </summary>
+        internal static string EnderecoDestino {
+            get {
+                return ResourceManager.GetString("EnderecoDestino", resourceCulture);
             }
         }
         
@@ -120,6 +138,15 @@ namespace ArbitroBitcoin.Resources {
         internal static string Sobre {
             get {
                 return ResourceManager.GetString("Sobre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valor.
+        /// </summary>
+        internal static string Valor {
+            get {
+                return ResourceManager.GetString("Valor", resourceCulture);
             }
         }
     }
