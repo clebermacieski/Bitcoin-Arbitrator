@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -13,9 +14,23 @@ namespace ArbitroBitcoin.ViewModels
     {
         string enderecoRecebimento;
         public event PropertyChangedEventHandler PropertyChanged;
+        bool podeGerar = true;
         public ReceberViewModel()
         {
-            RetornaEnderecoCommand = new Command(() => EnderecoRecebimento = Negociar.Receber());
+            RetornaEnderecoCommand = new Command( async () => await GerarEndereco(), () => podeGerar);
+        }
+
+        private async Task GerarEndereco()
+        {
+            PodeGerarEndereco(false);
+            await Task.Run(() => EnderecoRecebimento = Negociar.Receber());
+            PodeGerarEndereco(true);
+        }
+
+        private void PodeGerarEndereco(bool v)
+        {
+            podeGerar = v;
+            ((Command)RetornaEnderecoCommand).ChangeCanExecute();
         }
 
         public string EnderecoRecebimento

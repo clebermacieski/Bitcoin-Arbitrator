@@ -18,7 +18,7 @@ namespace ArbitroBitcoin.ViewModels
 
         public EnviarViewModel()
         {
-            RealizarTransacaoCommand = new Command(() => Negociar.Enviar(EnderecoDestino,Valor,EnderecoArbitro));
+            RealizarTransacaoCommand = new Command(() => Negociar.Enviar(EnderecoDestino, Valor, EnderecoArbitro));
         }
 
         public ICommand RealizarTransacaoCommand { get; private set; }
