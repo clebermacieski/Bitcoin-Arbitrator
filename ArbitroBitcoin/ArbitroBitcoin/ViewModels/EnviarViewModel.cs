@@ -22,8 +22,49 @@ namespace ArbitroBitcoin.ViewModels
         }
 
         public ICommand RealizarTransacaoCommand { get; private set; }
-        public string EnderecoDestino { get => enderecoDestino; set => enderecoDestino = value; }
-        public double Valor { get => valor; set => valor = value; }
-        public string EnderecoArbitro { get => enderecoArbitro; set => enderecoArbitro = value; }
+        public string EnderecoDestino
+        {
+            set
+            {
+                if (enderecoDestino != value)
+                {
+                    enderecoDestino = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("EnderecoDestino"));
+                }
+            }
+            get
+            {
+                return enderecoDestino;
+            }
+        }
+        public double Valor {
+            set
+            {
+                if ( valor != value)
+                {
+                    valor = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Valor"));
+                }
+            }
+            get
+            {
+                return valor;
+            }
+        }
+        public string EnderecoArbitro
+        {
+            set
+            {
+                if (enderecoArbitro != value)
+                {
+                    enderecoArbitro = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("EnderecoArbitro"));
+                }
+            }
+            get
+            {
+                return enderecoArbitro;
+            }
+        }
     }
 }
