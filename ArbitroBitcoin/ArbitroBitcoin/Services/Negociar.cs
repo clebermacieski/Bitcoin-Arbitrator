@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using NBitcoin;
 
@@ -15,13 +16,11 @@ namespace ArbitroBitcoin.Services
             return endereco.ToString();
         }
 
-        internal static void Enviar(string enderecoDestino, double valor)
+        internal static void Enviar(string enderecoDestino, double valor, string enderecoArbitro = null)
         {
-            throw new NotImplementedException();
-        }
-        internal static void Enviar(string enderecoDestino, double valor, string enderecoArbitro)
-        {
-            throw new NotImplementedException();
+            Debug.WriteLine(enderecoDestino);
+            Debug.WriteLine(valor);
+            Debug.WriteLine(enderecoArbitro);
         }
     }
 }

@@ -147,4 +147,7 @@
   <data name="Arbitro" xml:space="preserve">
     <value>Árbitro</value>
   </data>
+  <data name="EnderecoArbitro" xml:space="preserve">
+    <value>Endereço do Árbitro</value>
+  </data>
 </root>

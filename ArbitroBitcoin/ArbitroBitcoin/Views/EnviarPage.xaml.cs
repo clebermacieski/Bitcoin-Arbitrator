@@ -19,7 +19,7 @@ namespace ArbitroBitcoin.Views
 
             enderecoDestinoEntry.Placeholder = AppResources.EnderecoDestino;
             valorEntry.Placeholder = AppResources.Valor;
-            enderecoArbitroEntry.Placeholder = AppResources.Arbitro;
+            enderecoArbitroEntry.Placeholder = AppResources.EnderecoArbitro;
             enviarButton.Text = AppResources.Enviar;
         }
     }
