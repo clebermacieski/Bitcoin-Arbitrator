@@ -16,7 +16,7 @@ namespace ArbitroBitcoin.Services
             return endereco.ToString();
         }
 
-        internal static void Enviar(string enderecoDestino, double valor, string enderecoArbitro = null)
+        public static void Enviar(string enderecoDestino, double valor, string enderecoArbitro = null)
         {
             Debug.WriteLine(enderecoDestino);
             Debug.WriteLine(valor);

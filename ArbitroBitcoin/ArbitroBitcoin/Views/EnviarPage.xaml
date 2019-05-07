@@ -17,7 +17,7 @@
             <Entry x:Name="enderecoArbitroEntry" 
                    Text="{Binding EnderecoArbitro}"/>
             <Button x:Name="enviarButton"
-                    Command="RealizarTransacaoCommand"/>
+                    Command="{Binding RealizarTransacaoCommand}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
