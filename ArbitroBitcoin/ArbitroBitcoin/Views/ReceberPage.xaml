@@ -11,8 +11,13 @@
 
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center">
-            <Label Text="{Binding EnderecoRecebimento}" 
-               HorizontalOptions="Center"/>
+            <Label x:Name="labelEndereco"
+                Text="{Binding EnderecoRecebimento}" 
+               HorizontalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnEnderecoLabelTapped" />
+                </Label.GestureRecognizers>
+            </Label>
             <Button x:Name="gerarEndereco"
                 Text="GerarEndereco" 
                 HorizontalOptions="Center"

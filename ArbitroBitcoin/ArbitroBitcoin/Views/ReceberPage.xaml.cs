@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace ArbitroBitcoin.Views
 {
@@ -19,6 +20,12 @@ namespace ArbitroBitcoin.Views
 
             gerarEndereco.Text = AppResources.GerarEndereco;
             //enderecoRecebimento.Text = AppResources.EnderecodeRecebimento;
+        }
+
+        private void OnEnderecoLabelTapped(object sender, EventArgs e)
+        {
+            DisplayAlert("Alert", "Label clicada", "OK");
+            Clipboard.SetTextAsync(labelEndereco.Text);
         }
 
         /*void OnGerarEnderecoButtonClicked(object sender, EventArgs e)
