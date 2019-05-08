@@ -21,6 +21,16 @@ namespace ArbitroBitcoin.Services
             Debug.WriteLine(enderecoDestino);
             Debug.WriteLine(valor);
             Debug.WriteLine(enderecoArbitro);
+            /* Preciso de uma transaction id de minha posse para gerar a transação para o destino, com um valor maior que esse valor + taxa*/
+            var transacaoOrigem = ExploradorBlockchain.PegarIdTransacao();
+            Negociar.Enviar(enderecoDestino, valor,enderecoArbitro);
+
+
+            /* Na transação origem, verificar qual outpoint bate com a respectiva private key*/
+
+            /*Destinar*/
+
+            /*Broadcast*/
         }
     }
 }

@@ -22,6 +22,7 @@ namespace transacoes_nbitcoin
             //Consulta transação que gastarei (Um output de troco e um "Enviando pra mim mesmo1" que gastarei
             var client = new QBitNinjaClient(rede);
             var transactionId = uint256.Parse(txIdOrigem);
+            Console.WriteLine("Endereço direto da rede: " + transactionId);
             var transactionResponse = client.GetTransaction(transactionId).Result; //?
 
             

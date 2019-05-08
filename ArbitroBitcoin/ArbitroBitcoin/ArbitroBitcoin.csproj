@@ -11,8 +11,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NBitcoin" Version="4.1.2.7" />
-    <PackageReference Include="Xamarin.Forms" Version="3.6.0.264807" />  
+    <PackageReference Include="NBitcoin" Version="4.1.2.14" />
+    <PackageReference Include="QBitNinja.Client" Version="1.0.3.47" />
+    <PackageReference Include="Xamarin.Forms" Version="3.6.0.344457" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
   </ItemGroup>
 
