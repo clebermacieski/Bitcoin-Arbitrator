@@ -23,7 +23,7 @@ namespace ArbitroBitcoin.ViewModels
         private async Task GerarEndereco()
         {
             PodeGerarEndereco(false);
-            await Task.Run(() => EnderecoRecebimento = Negociar.Receber());
+            await Task.Run(() => EnderecoRecebimento = Negociador.Receber());
             PodeGerarEndereco(true);
         }
 
