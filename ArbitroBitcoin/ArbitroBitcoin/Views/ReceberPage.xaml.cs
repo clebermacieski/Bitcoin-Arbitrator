@@ -24,8 +24,8 @@ namespace ArbitroBitcoin.Views
 
         private void OnEnderecoLabelTapped(object sender, EventArgs e)
         {
-            DisplayAlert("Alert", "Label clicada", "OK");
             Clipboard.SetTextAsync(labelEndereco.Text);
+            DisplayAlert("Informação", "Endereço copiado.", "OK");
         }
 
         /*void OnGerarEnderecoButtonClicked(object sender, EventArgs e)

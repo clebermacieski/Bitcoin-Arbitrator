@@ -44,8 +44,8 @@ namespace ArbitroBitcoin.Services
 
             if (!broadcastResponse.Success)
             {
-                /*Console.Error.WriteLine("ErrorCode: " + broadcastResponse.Error.ErrorCode);
-                Console.Error.WriteLine("Error message: " + broadcastResponse.Error.Reason);*/
+                Console.Error.WriteLine("ErrorCode: " + broadcastResponse.Error.ErrorCode);
+                Console.Error.WriteLine("Error message: " + broadcastResponse.Error.Reason);
             }
             else
             {

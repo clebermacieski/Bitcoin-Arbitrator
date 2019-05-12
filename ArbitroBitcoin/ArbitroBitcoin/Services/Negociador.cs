@@ -25,7 +25,7 @@ namespace ArbitroBitcoin.Services
         /// <param name="destino">Endereço de Destino</param>
         /// <param name="valor">Quantia em BTC</param>
         /// <param name="enderecoArbitro">Endereço Do Arbitro</param>
-        public static void Enviar(string destino, decimal valorAEnviar, string enderecoArbitro = null)
+        public static bool Enviar(string destino, decimal valorAEnviar, string enderecoArbitro = null)
         {
             valorAEnviar = 0.00000001m;
             destino = "2N8MhUSTiw5JX8QCD4XoAZ2Qb5DcX9E5Qf6";
@@ -46,7 +46,7 @@ namespace ArbitroBitcoin.Services
             var enderecoDestino = BitcoinAddress.Create(destino, rede);
             //{2N8MhUSTiw5JX8QCD4XoAZ2Qb5DcX9E5Qf6}
 
-            var taxaDeMineracao = new Money(0.00000100m, MoneyUnit.BTC); //Taxa fixa em um bit
+            var taxaDeMineracao = new Money(0.00008000m, MoneyUnit.BTC); //Taxa fixa em 80 bit
 
             var quantiaTxInDisponivel = (Money)coinsDaTransacao[(int)outPointAGastar.N].Amount;
 
@@ -90,7 +90,9 @@ namespace ArbitroBitcoin.Services
 
             transacao.Sign(bitcoinSecret, coinsDaTransacao.ToArray());
 
-            ExploradorBlockchain.PropagarTransacao(transacao, bitcoinSecret.Network);
+            var txId = transacao.GetHash();
+
+            return ExploradorBlockchain.PropagarTransacao(transacao, bitcoinSecret.Network);
         }
 
         private static BitcoinSecret RetonaPrivateKey()

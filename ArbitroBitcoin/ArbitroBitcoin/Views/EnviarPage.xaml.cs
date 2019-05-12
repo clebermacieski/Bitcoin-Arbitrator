@@ -21,6 +21,11 @@ namespace ArbitroBitcoin.Views
             valorEntry.Placeholder = AppResources.Valor;
             enderecoArbitroEntry.Placeholder = AppResources.EnderecoArbitro;
             enviarButton.Text = AppResources.Enviar;
+
+            MessagingCenter.Subscribe<ViewModels.EnviarViewModel>(this, "erro_envio", (sender) =>
+            {
+                DisplayAlert("Alerta", "Não foi possivel emitir a transação.", "OK");
+            });
         }
     }
 }
