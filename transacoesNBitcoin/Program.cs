@@ -17,7 +17,26 @@ namespace transacoes_nbitcoin
         {
             // retornaInfoTransacao();
             Gastar();
+            //MostrarInformacaoDeEndereco();
 
+        }
+
+        private static void MostrarInformacaoDeEndereco()
+        {
+            Console.WriteLine("cTQA9XcNUcS7CVtvAvz6BipKn5xzWTn3ppFTGCkEwe8QS9dVZPDw");
+            string chavePrivada = "cTQA9XcNUcS7CVtvAvz6BipKn5xzWTn3ppFTGCkEwe8QS9dVZPDw";
+            var bitcoinSecret = new BitcoinSecret(chavePrivada);
+            PubKey chavePublica = bitcoinSecret.PubKey;
+            Console.WriteLine(chavePublica);
+            BitcoinPubKeyAddress endereco = chavePublica.GetAddress(Network.TestNet);
+            var client = new QBitNinjaClient(bitcoinSecret.Network);
+
+            var listaDeOperacoes = client.GetBalance(bitcoinSecret.GetAddress()).Result.Operations;
+
+            foreach (var operacao in listaDeOperacoes)
+            {
+                Console.WriteLine(operacao.TransactionId);
+            }
         }
 
         private static void Gastar()

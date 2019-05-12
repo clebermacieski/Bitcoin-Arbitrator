@@ -11,7 +11,7 @@ namespace ArbitroBitcoin.ViewModels
     class EnviarViewModel : INotifyPropertyChanged
     {
         string enderecoDestino;
-        double valor;
+        decimal valor;
         string enderecoArbitro;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -37,7 +37,7 @@ namespace ArbitroBitcoin.ViewModels
                 return enderecoDestino;
             }
         }
-        public double Valor {
+        public decimal Valor {
             set
             {
                 if ( valor != value)
