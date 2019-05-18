@@ -56,5 +56,25 @@ namespace ArbitroBitcoin.Services
 
             return false;
         }
+
+        public static void RetornarSaldo(BitcoinSecret segredo, Network rede)
+        {
+            var client = new QBitNinjaClient(rede);
+            var coinsNaoGastos = new Dictionary<Coin, bool>();
+
+            BitcoinAddress endereco = segredo.PrivateKey.ScriptPubKey.GetDestinationAddress(rede);
+            var modeloDeBalanco = client.GetBalance(endereco, unspentOnly: false).Result;
+            foreach (var operacoes in modeloDeBalanco.Operations)
+            {
+                /*if (operacoes.Confirmations) > 0){
+                    foreach (var elemento in operacoes.ReceivedCoins)
+                    {
+                        if (elemento.
+                        coinsNaoGastos.Add(elementos, operacoes.Confirmations > 0);
+                    }*/
+                }
+                
+            }
+        }
     }
 }

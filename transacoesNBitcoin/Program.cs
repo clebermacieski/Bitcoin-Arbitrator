@@ -16,8 +16,9 @@ namespace transacoes_nbitcoin
         static void Main(string[] args)
         {
             // retornaInfoTransacao();
-            Gastar();
+            //Gastar();
             //MostrarInformacaoDeEndereco();
+            RetornaSaldo();
 
         }
 
@@ -96,5 +97,32 @@ namespace transacoes_nbitcoin
             consultaRede(txid);
             
         }
+
+        private static void RetornaSaldo()
+        {
+            Console.WriteLine("1");
+            var client = new QBitNinjaClient(rede);
+            var coinsNaoGastos = new Dictionary<Coin, bool>();
+            string chavePrivada = "cTQA9XcNUcS7CVtvAvz6BipKn5xzWTn3ppFTGCkEwe8QS9dVZPDw";
+            var segredo = new BitcoinSecret(chavePrivada);
+
+            BitcoinAddress endereco = segredo.PrivateKey.ScriptPubKey.GetDestinationAddress(rede);
+            var modeloDeBalanco = client.GetBalance(endereco, unspentOnly: false).Result;
+            Console.WriteLine("aqui");
+            foreach (var operacoes in modeloDeBalanco.Operations)
+            {
+
+                Console.WriteLine(operacoes.ToString());
+                /*if (operacoes.Confirmations) > 0){
+                    foreach (var elemento in operacoes.ReceivedCoins)
+                    {
+                        if (elemento.
+                        coinsNaoGastos.Add(elementos, operacoes.Confirmations > 0);
+                    }*/
+            }
+        }
+               
+            
+        
     }
 }
