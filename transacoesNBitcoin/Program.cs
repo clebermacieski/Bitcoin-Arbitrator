@@ -48,7 +48,7 @@ namespace transacoes_nbitcoin
 
             String enderecoDestino = "mwGYn4JXyjXXtLVsJJNDKRYS95vSG6dY3o"; //Transação Enviado do meu programa.
 
-            gastador.gastar(txIdOrigem , enderecoDestino);
+            gastador.gastar(txIdOrigem, enderecoDestino);
         }
 
 
@@ -71,7 +71,7 @@ namespace transacoes_nbitcoin
                     Console.WriteLine("Script de pagamento= " + scriptDePagamento2);
                     var endereco = scriptDePagamento2.GetDestinationAddress(Network.Main);
                     Console.WriteLine("Endereço= " + endereco);
-                    }
+                }
             }
 
             void consultaRede(string transacao)
@@ -95,34 +95,40 @@ namespace transacoes_nbitcoin
             String txid = "39f2fa57c3620ee44724244c2747d79ce6d392a54fdf637ab969911763deaa61";
 
             consultaRede(txid);
-            
+
         }
 
-        private static void RetornaSaldo()
+        private static Money RetornaSaldo()
         {
-            Console.WriteLine("1");
             var client = new QBitNinjaClient(rede);
             var coinsNaoGastos = new Dictionary<Coin, bool>();
             string chavePrivada = "cTQA9XcNUcS7CVtvAvz6BipKn5xzWTn3ppFTGCkEwe8QS9dVZPDw";
             var segredo = new BitcoinSecret(chavePrivada);
 
             BitcoinAddress endereco = segredo.PrivateKey.ScriptPubKey.GetDestinationAddress(rede);
-            var modeloDeBalanco = client.GetBalance(endereco, unspentOnly: false).Result;
-            Console.WriteLine("aqui");
+            var modeloDeBalanco = client.GetBalance(endereco, unspentOnly: true).Result;
             foreach (var operacoes in modeloDeBalanco.Operations)
             {
-
-                Console.WriteLine(operacoes.ToString());
-                /*if (operacoes.Confirmations) > 0){
-                    foreach (var elemento in operacoes.ReceivedCoins)
+                if (operacoes.Confirmations > 0)
+                {
+                    foreach (var elemento in operacoes.ReceivedCoins.Select(coin => coin as Coin))
                     {
-                        if (elemento.
-                        coinsNaoGastos.Add(elementos, operacoes.Confirmations > 0);
-                    }*/
+                       coinsNaoGastos.Add(elemento, operacoes.Confirmations > 0);
+                    }
+                }
             }
+
+            var quantia = Money.Zero;
+
+            foreach(var moeda in coinsNaoGastos)
+            {
+                if (moeda.Value) //Somente valores confirmados
+                {
+                    quantia += moeda.Key.Amount;
+                }
+            }
+
+            return quantia;
         }
-               
-            
-        
     }
 }

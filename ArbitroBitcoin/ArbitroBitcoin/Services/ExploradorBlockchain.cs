@@ -3,6 +3,7 @@ using QBitNinja.Client;
 using QBitNinja.Client.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ArbitroBitcoin.Services
@@ -57,24 +58,36 @@ namespace ArbitroBitcoin.Services
             return false;
         }
 
-        public static void RetornarSaldo(BitcoinSecret segredo, Network rede)
+        public static String RetornarSaldo(BitcoinSecret segredo, Network rede)
         {
             var client = new QBitNinjaClient(rede);
             var coinsNaoGastos = new Dictionary<Coin, bool>();
 
             BitcoinAddress endereco = segredo.PrivateKey.ScriptPubKey.GetDestinationAddress(rede);
-            var modeloDeBalanco = client.GetBalance(endereco, unspentOnly: false).Result;
+            var modeloDeBalanco = client.GetBalance(endereco, unspentOnly: true).Result;
+
             foreach (var operacoes in modeloDeBalanco.Operations)
             {
-                /*if (operacoes.Confirmations) > 0){
-                    foreach (var elemento in operacoes.ReceivedCoins)
+                if (operacoes.Confirmations > 0)
+                {
+                    foreach (var elemento in operacoes.ReceivedCoins.Select(coin => coin as Coin))
                     {
-                        if (elemento.
-                        coinsNaoGastos.Add(elementos, operacoes.Confirmations > 0);
-                    }*/
+                        coinsNaoGastos.Add(elemento, operacoes.Confirmations > 0);
+                    }
                 }
-                
             }
+
+            var quantia = Money.Zero;
+
+            foreach (var moeda in coinsNaoGastos)
+            {
+                if (moeda.Value) //Somente valores confirmados
+                {
+                    quantia += moeda.Key.Amount;
+                }
+            }
+
+            return quantia.ToString();
         }
     }
 }
