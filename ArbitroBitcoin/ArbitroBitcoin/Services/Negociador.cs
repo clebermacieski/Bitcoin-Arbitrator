@@ -128,5 +128,15 @@ namespace ArbitroBitcoin.Services
 
             return outPoint;
         }
+        /// <summary>
+        /// Método que pega saldo de determinado endereço
+        /// </summary>
+        /// <returns> O saldo da chave </returns>
+        internal static string PegarSaldo()
+        {
+            var bitcoinSecret = RetonaPrivateKey();
+            var rede = bitcoinSecret.Network;
+            return ExploradorBlockchain.RetornarSaldo(bitcoinSecret, rede);
+        }
     }
 }
