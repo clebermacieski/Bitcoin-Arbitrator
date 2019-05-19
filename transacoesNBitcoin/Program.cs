@@ -18,8 +18,26 @@ namespace transacoes_nbitcoin
             // retornaInfoTransacao();
             //Gastar();
             //MostrarInformacaoDeEndereco();
-            RetornaSaldo();
+            //RetornaSaldo();
+            RetornaSaldoChaveMestra();
+        }
 
+        private static void RetornaSaldoChaveMestra()
+        {
+            string chavePrivada = "cUaDX2ECmotrvVH71puhfmRHSTCjUxUtV5cUipqkMnfLGhzLKHAn";
+
+            ExtKey extKey = new ExtKey();
+            byte[] chainCode = extKey.ChainCode;
+            Key chave = new BitcoinSecret(chavePrivada).PrivateKey;
+
+            ExtKey chaveMestra = new ExtKey(chave, chainCode);
+            Console.WriteLine(chaveMestra.PrivateKey.ToString(Network.TestNet));
+
+            for (int i = 0; i < 5; i++)
+            {
+                ExtKey key = chaveMestra.Derive((uint)i);
+                Console.WriteLine("Chaves derivadas " + i + " : " + key.ToString(Network.Main));
+            }
         }
 
         private static void MostrarInformacaoDeEndereco()

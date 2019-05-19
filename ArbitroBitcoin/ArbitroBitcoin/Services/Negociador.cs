@@ -29,7 +29,7 @@ namespace ArbitroBitcoin.Services
         {
             valorAEnviar = 0.00000001m;
             destino = "2N8MhUSTiw5JX8QCD4XoAZ2Qb5DcX9E5Qf6";
-            var bitcoinSecret = RetonaPrivateKey();
+            var bitcoinSecret = RetonaPrivateKey();  //TODO: Retorna private key, verifica saldo do outpoint e pega mais uma se não for o suficiente ou erro se não tiver
             var rede = bitcoinSecret.Network;
 
             var transacao = Transaction.Create(rede);
@@ -95,16 +95,31 @@ namespace ArbitroBitcoin.Services
             return ExploradorBlockchain.PropagarTransacao(transacao, bitcoinSecret.Network);
         }
 
+        /// <summary>
+        /// Retorna chaves Bitcoins Secrets gerados deterministicamente
+        /// </summary>
+        /// <returns></returns>
         private static BitcoinSecret RetonaPrivateKey()
         {
-            //TODO: Como gerenciar as private keys? Idéia: transacionar apenas consigo mesmo e ir guardando as chaves e txIds em sqllite
-            
+
             /*Chaves privadas usadas:
             "cTQA9XcNUcS7CVtvAvz6BipKn5xzWTn3ppFTGCkEwe8QS9dVZPDw"
             */
-            string chavePrivada = "cUaDX2ECmotrvVH71puhfmRHSTCjUxUtV5cUipqkMnfLGhzLKHAn"; 
+            string chavePrivada = "cUaDX2ECmotrvVH71puhfmRHSTCjUxUtV5cUipqkMnfLGhzLKHAn";
 
-            return new BitcoinSecret(chavePrivada);
+            ExtKey extKey = new ExtKey();
+            byte[] chainCode = extKey.ChainCode;
+            Key chave = new BitcoinSecret(chavePrivada).PrivateKey;
+
+            ExtKey chaveMestra = new ExtKey(chave, chainCode);
+            Console.WriteLine(chaveMestra.PrivateKey.ToString(Network.TestNet));
+
+            var cont = 1;
+            ExtKey key = chaveMestra.Derive((uint)cont);
+
+            var chavePrivadaDerivada = key.PrivateKey;
+            
+            return new BitcoinSecret(chavePrivadaDerivada.ToString());
         }
 
         private static OutPoint PegarOutpointOrigem(List<ICoin> coinsDaTransacao, Script scriptPubKey)
