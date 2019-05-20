@@ -11,21 +11,61 @@ namespace ArbitroBitcoin.Services
     /// </summary>
     class Negociador
     {
+        /// <summary>
+        /// Este método gera um endereço baseado em três outros endereços, dos quais 2-3 tem que assinar a fim de gastar uma transação criada para tal endereço
+        /// </summary>
+        /// <returns></returns>
+        public static string ReceberArbitrado(string destino, string arbitro)
+        {
+            var segredoBitcoin = RetonaPrivateKey();
+            var rede = segredoBitcoin.Network;
+
+            var enderecoDestino = BitcoinAddress.Create(destino, rede);
+            var enderecoArbitro = BitcoinAddress.Create(arbitro, rede);
+
+            Script scriptResgate = PayToMultiSigTemplate.Instance.GenerateScriptPubKey(2, new[] { segredoBitcoin.PubKey, enderecoDestino.ScriptPubKey.GetAllPubKeys()[0], enderecoArbitro.ScriptPubKey.GetAllPubKeys()[0] });
+
+            return scriptResgate.Hash.GetAddress(rede).ToString() ;
+            //TODO: Criar nova label para colocar endereco de destino e mostrar endereço arbitrado 
+        }
         public static string Receber()
         {
-            Key chavePrivada = new Key();  //TODO: Persistir as PK's
+            Key chavePrivada = RetonaPrivateKey().PrivateKey;
             PubKey chavePublica = chavePrivada.PubKey;
             BitcoinPubKeyAddress endereco = chavePublica.GetAddress(Network.TestNet);
             return endereco.ToString();
         }
 
         /// <summary>
+        /// Método que cria transação com arbitragem 2-3
+        /// Este método adiciona coins, assina e serializa um objeto a fim de que seja enviado para mais um dos participantes para que a transação possa ser assinada mais uma vez e transmitida ne rede de forma validável
+        /// </summary>
+        /// <param name="destino"></param>
+        /// <param name="valorAEnviar"></param>
+        /// <param name="enderecoArbitro"></param>
+        /// <returns></returns>
+        public static bool EnviarComArbitro(string destino, decimal valorAEnviar, string enderecoArbitro = null)
+        {
+            valorAEnviar = 0.00000001m;
+            destino = "2N8MhUSTiw5JX8QCD4XoAZ2Qb5DcX9E5Qf6";
+            var bitcoinSecret = RetonaPrivateKey();
+            var rede = bitcoinSecret.Network;
+            TransactionBuilder construtor = rede.CreateTransactionBuilder();
+
+            //TODO: buildar a transação com os coins, assina-la e serializa-la a fim de que seja possível assina-la novamente a partir da tela do arbitro
+
+            return false;
+
+        }
+
+        /// <summary>
         /// Método que envia valor para para determinado endereço com a possibilidade de usar um arbitro
+        /// Se houver arbitro envolvido, cria a transação, assina e serializa para enviar para a assinatura de m-n dos participantes
         /// </summary>
         /// <param name="destino">Endereço de Destino</param>
         /// <param name="valor">Quantia em BTC</param>
         /// <param name="enderecoArbitro">Endereço Do Arbitro</param>
-        public static bool Enviar(string destino, decimal valorAEnviar, string enderecoArbitro = null)
+        public static bool Enviar(string destino, decimal valorAEnviar)
         {
             valorAEnviar = 0.00000001m;
             destino = "2N8MhUSTiw5JX8QCD4XoAZ2Qb5DcX9E5Qf6";
@@ -114,7 +154,7 @@ namespace ArbitroBitcoin.Services
             ExtKey chaveMestra = new ExtKey(chave, chainCode);
             Console.WriteLine(chaveMestra.PrivateKey.ToString(Network.TestNet));
 
-            var cont = 1;
+            var cont = 1;  //TODO: Implementar controle para saber em que nivel esta a geração
             ExtKey key = chaveMestra.Derive((uint)cont);
 
             var chavePrivadaDerivada = key.PrivateKey;
