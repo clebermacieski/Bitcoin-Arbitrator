@@ -19,7 +19,9 @@ namespace ArbitroBitcoin.Views
             InitializeComponent();
 
             gerarEndereco.Text = AppResources.GerarEndereco;
-            //enderecoRecebimento.Text = AppResources.EnderecodeRecebimento;
+            gerarEnderecoArbitrado.Text = AppResources.EnderecodeRecebimentoArbitrado;
+            enderecoRemetenteEntry.Placeholder = AppResources.EnderecoRemetente;
+            enderecoArbitroEntry.Placeholder = AppResources.EnderecoArbitro;
         }
 
         private void OnEnderecoLabelTapped(object sender, EventArgs e)
@@ -28,9 +30,10 @@ namespace ArbitroBitcoin.Views
             DisplayAlert("Informação", "Endereço copiado.", "OK");
         }
 
-        /*void OnGerarEnderecoButtonClicked(object sender, EventArgs e)
+        private void OnEnderecoArbitradoLabelTapped(object sender, EventArgs e)
         {
-            //DisplayAlert("Alert", "Botão clicado", "OK");
-        }*/
+            Clipboard.SetTextAsync(labelEnderecoArbitrado.Text);
+            DisplayAlert("Informação", "Endereço arbitrado copiado.", "OK");
+        }
     }
 }

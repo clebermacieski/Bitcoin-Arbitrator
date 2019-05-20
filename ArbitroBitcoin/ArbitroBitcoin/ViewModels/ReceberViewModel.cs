@@ -15,9 +15,19 @@ namespace ArbitroBitcoin.ViewModels
         string enderecoRecebimento;
         public event PropertyChangedEventHandler PropertyChanged;
         bool podeGerar = true;
+        string enderecoRecebimentoArbitrado;
+
         public ReceberViewModel()
         {
-            RetornaEnderecoCommand = new Command( async () => await GerarEndereco(), () => podeGerar);
+            RetornaEnderecoCommand = new Command(async () => await GerarEndereco(), () => podeGerar);
+            RetornaEnderecoArbitradoCommand = new Command(async () => await GerarEnderecoArbitrado(), () => podeGerar);
+        }
+
+        private async Task GerarEnderecoArbitrado()
+        {
+            PodeGerarEndereco(false);
+            await Task.Run(() => EnderecoRecebimentoArbitrado = Negociador.ReceberArbitrado());//TODO: Parametros do endereço do remetente e arbitro para criação do endereço de recebimento arbitrado
+            PodeGerarEndereco(true);
         }
 
         private async Task GerarEndereco()
@@ -50,5 +60,18 @@ namespace ArbitroBitcoin.ViewModels
         }
 
         public ICommand RetornaEnderecoCommand { private set; get; }
+        public string EnderecoRecebimentoArbitrado
+        {
+            get { return enderecoRecebimentoArbitrado; }
+            set
+            {
+                if (enderecoRecebimentoArbitrado != value)
+                {
+                    enderecoRecebimentoArbitrado = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("EnderecoRecebimentoArbitrado"));
+                }
+            }
+        }
+        public ICommand RetornaEnderecoArbitradoCommand { private set; get; }
     }
 }

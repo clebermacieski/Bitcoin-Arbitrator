@@ -23,6 +23,22 @@
                 HorizontalOptions="Center"
                 Command="{Binding RetornaEnderecoCommand}"
                 />
+            <Label x:Name="labelEnderecoArbitrado"
+                Text="{Binding EnderecoRecebimentoArbitrado}" 
+               HorizontalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnEnderecoArbitradoLabelTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+            <Entry x:Name="enderecoRemetenteEntry" 
+                   Text="{Binding EnderecoRemetente}"/>
+            <Entry x:Name="enderecoArbitroEntry" 
+                   Text="{Binding EnderecoArbitro}"/>
+            <Button x:Name="gerarEnderecoArbitrado"
+                Text="GerarEnderecoArbitrado" 
+                HorizontalOptions="Center"
+                Command="{Binding RetornaEnderecoArbitradoCommand}"
+                />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

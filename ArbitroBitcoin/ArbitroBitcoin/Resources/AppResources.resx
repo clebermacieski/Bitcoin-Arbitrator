@@ -150,4 +150,10 @@
   <data name="EnderecoArbitro" xml:space="preserve">
     <value>Endereço do Árbitro</value>
   </data>
+  <data name="EnderecodeRecebimentoArbitrado" xml:space="preserve">
+    <value>Endereço Arbitrado</value>
+  </data>
+  <data name="EnderecoRemetente" xml:space="preserve">
+    <value>Endereço do Remetente</value>
+  </data>
 </root>
