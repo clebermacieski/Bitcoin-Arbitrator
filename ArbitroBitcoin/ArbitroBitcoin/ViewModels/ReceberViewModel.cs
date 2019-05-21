@@ -16,17 +16,19 @@ namespace ArbitroBitcoin.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         bool podeGerar = true;
         string enderecoRecebimentoArbitrado;
+        string enderecoRemetente;
+        string enderecoArbitro;
 
         public ReceberViewModel()
         {
             RetornaEnderecoCommand = new Command(async () => await GerarEndereco(), () => podeGerar);
-            RetornaEnderecoArbitradoCommand = new Command(async () => await GerarEnderecoArbitrado(), () => podeGerar);
+            //RetornaEnderecoArbitradoCommand = new Command(async () => await GerarEnderecoArbitrado(), () => podeGerar);
         }
 
         private async Task GerarEnderecoArbitrado()
         {
             PodeGerarEndereco(false);
-            await Task.Run(() => EnderecoRecebimentoArbitrado = Negociador.ReceberArbitrado());//TODO: Parametros do endereço do remetente e arbitro para criação do endereço de recebimento arbitrado
+            await Task.Run(() => EnderecoRecebimentoArbitrado = Negociador.ReceberArbitrado(EnderecoRemetente, EnderecoArbitro));//TODO: Parametros do endereço do remetente e arbitro para criação do endereço de recebimento arbitrado
             PodeGerarEndereco(true);
         }
 
@@ -73,5 +75,7 @@ namespace ArbitroBitcoin.ViewModels
             }
         }
         public ICommand RetornaEnderecoArbitradoCommand { private set; get; }
+        public string EnderecoRemetente { get => enderecoRemetente; set => enderecoRemetente = value; }
+        public string EnderecoArbitro { get => enderecoArbitro; set => enderecoArbitro = value; }
     }
 }

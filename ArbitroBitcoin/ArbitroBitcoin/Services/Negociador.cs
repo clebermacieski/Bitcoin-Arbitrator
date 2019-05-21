@@ -14,13 +14,15 @@ namespace ArbitroBitcoin.Services
         /// <summary>
         /// Este método gera um endereço baseado em três outros endereços, dos quais 2-3 tem que assinar a fim de gastar uma transação criada para tal endereço
         /// </summary>
+        /// <param name="remetente">Endereço de quem vai enviar o valor</param>
+        /// <param name="arbitro">Endereço do arbitro da transação</param>
         /// <returns></returns>
-        public static string ReceberArbitrado(string destino, string arbitro)
+        public static string ReceberArbitrado(string remetente, string arbitro)
         {
             var segredoBitcoin = RetonaPrivateKey();
             var rede = segredoBitcoin.Network;
 
-            var enderecoDestino = BitcoinAddress.Create(destino, rede);
+            var enderecoDestino = BitcoinAddress.Create(remetente, rede);
             var enderecoArbitro = BitcoinAddress.Create(arbitro, rede);
 
             Script scriptResgate = PayToMultiSigTemplate.Instance.GenerateScriptPubKey(2, new[] { segredoBitcoin.PubKey, enderecoDestino.ScriptPubKey.GetAllPubKeys()[0], enderecoArbitro.ScriptPubKey.GetAllPubKeys()[0] });
@@ -43,8 +45,10 @@ namespace ArbitroBitcoin.Services
         /// <param name="destino"></param>
         /// <param name="valorAEnviar"></param>
         /// <param name="enderecoArbitro"></param>
-        /// <returns></returns>
-        public static bool EnviarComArbitro(string destino, decimal valorAEnviar, string enderecoArbitro = null)
+        /// <param name="destino">Endereço de Destino</param>
+        /// <param name="valor">Quantia em BTC</param>
+        /// <param name="enderecoArbitro">Endereço Do Arbitro</param>
+        public static bool Enviar(string destino, decimal valorAEnviar, string enderecoArbitro = null)
         {
             valorAEnviar = 0.00000001m;
             destino = "2N8MhUSTiw5JX8QCD4XoAZ2Qb5DcX9E5Qf6";
@@ -62,9 +66,6 @@ namespace ArbitroBitcoin.Services
         /// Método que envia valor para para determinado endereço com a possibilidade de usar um arbitro
         /// Se houver arbitro envolvido, cria a transação, assina e serializa para enviar para a assinatura de m-n dos participantes
         /// </summary>
-        /// <param name="destino">Endereço de Destino</param>
-        /// <param name="valor">Quantia em BTC</param>
-        /// <param name="enderecoArbitro">Endereço Do Arbitro</param>
         public static bool Enviar(string destino, decimal valorAEnviar)
         {
             valorAEnviar = 0.00000001m;
@@ -152,13 +153,15 @@ namespace ArbitroBitcoin.Services
             Key chave = new BitcoinSecret(chavePrivada).PrivateKey;
 
             ExtKey chaveMestra = new ExtKey(chave, chainCode);
-            Console.WriteLine(chaveMestra.PrivateKey.ToString(Network.TestNet));
 
             var cont = 1;  //TODO: Implementar controle para saber em que nivel esta a geração
             ExtKey key = chaveMestra.Derive((uint)cont);
 
             var chavePrivadaDerivada = key.PrivateKey;
-            
+
+            var x = chavePrivadaDerivada.ToString().ToString();
+
+
             return new BitcoinSecret(chavePrivadaDerivada.ToString());
         }
 
@@ -189,7 +192,8 @@ namespace ArbitroBitcoin.Services
         /// <returns> O saldo da chave </returns>
         internal static string PegarSaldo()
         {
-            var bitcoinSecret = RetonaPrivateKey();
+            string chavePrivada = "cUaDX2ECmotrvVH71puhfmRHSTCjUxUtV5cUipqkMnfLGhzLKHAn";
+            var bitcoinSecret = new BitcoinSecret(chavePrivada);
             var rede = bitcoinSecret.Network;
             return ExploradorBlockchain.RetornarSaldo(bitcoinSecret, rede);
         }
