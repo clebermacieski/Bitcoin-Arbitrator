@@ -14,21 +14,28 @@ namespace ArbitroBitcoin.Services
         /// <summary>
         /// Este método gera um endereço baseado em três outros endereços, dos quais 2-3 tem que assinar a fim de gastar uma transação criada para tal endereço
         /// </summary>
-        /// <param name="remetente">Endereço de quem vai enviar o valor</param>
-        /// <param name="arbitro">Endereço do arbitro da transação</param>
+        /// <param name="remetente">PubKey de quem vai enviar o valor</param>
+        /// <param name="arbitro">PubKey do arbitro da transação</param>
         /// <returns></returns>
-        public static string ReceberArbitrado(string remetente, string arbitro)
+        public static string ReceberArbitrado(string strPubKeyRemetente, string strPubKeyArbitro)
         {
             var segredoBitcoin = RetonaPrivateKey();
             var rede = segredoBitcoin.Network;
 
-            var enderecoDestino = BitcoinAddress.Create(remetente, rede);
-            var enderecoArbitro = BitcoinAddress.Create(arbitro, rede);
+            PubKey pubKeyRemetente = null;
+            if (strPubKeyRemetente == null) {
+                pubKeyRemetente = segredoBitcoin.PubKey;
+            }
 
-            Script scriptResgate = PayToMultiSigTemplate.Instance.GenerateScriptPubKey(2, new[] { segredoBitcoin.PubKey, enderecoDestino.ScriptPubKey.GetAllPubKeys()[0], enderecoArbitro.ScriptPubKey.GetAllPubKeys()[0] });
+            PubKey pubKeyArbitro = null ;
+            if (strPubKeyArbitro == null)
+            {
+                pubKeyArbitro = segredoBitcoin.PubKey;
+            }
 
-            return scriptResgate.Hash.GetAddress(rede).ToString() ;
-            //TODO: Criar nova label para colocar endereco de destino e mostrar endereço arbitrado 
+            Script scriptResgate = PayToMultiSigTemplate.Instance.GenerateScriptPubKey(2, new[] { segredoBitcoin.PubKey, pubKeyRemetente, pubKeyArbitro });
+
+            return scriptResgate.Hash.GetAddress(rede).ToString();
         }
         public static string Receber()
         {
@@ -159,10 +166,7 @@ namespace ArbitroBitcoin.Services
 
             var chavePrivadaDerivada = key.PrivateKey;
 
-            var x = chavePrivadaDerivada.ToString().ToString();
-
-
-            return new BitcoinSecret(chavePrivadaDerivada.ToString());
+            return new BitcoinSecret(chavePrivadaDerivada, Network.TestNet); //TODO: rede hardcoded
         }
 
         private static OutPoint PegarOutpointOrigem(List<ICoin> coinsDaTransacao, Script scriptPubKey)

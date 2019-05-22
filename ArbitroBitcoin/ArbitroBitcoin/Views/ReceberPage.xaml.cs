@@ -16,6 +16,7 @@ namespace ArbitroBitcoin.Views
     {
         public ReceberPage()
         {
+            //TODO: Arrumar placeholders e labels de retorno
             InitializeComponent();
 
             gerarEndereco.Text = AppResources.GerarEndereco;
