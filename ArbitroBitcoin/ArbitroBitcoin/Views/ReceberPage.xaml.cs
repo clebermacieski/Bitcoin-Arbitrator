@@ -20,9 +20,9 @@ namespace ArbitroBitcoin.Views
             InitializeComponent();
 
             gerarEndereco.Text = AppResources.GerarEndereco;
-            gerarEnderecoArbitrado.Text = AppResources.EnderecodeRecebimentoArbitrado;
-            enderecoRemetenteEntry.Placeholder = AppResources.EnderecoRemetente;
-            enderecoArbitroEntry.Placeholder = AppResources.EnderecoArbitro;
+            gerarEnderecoArbitrado.Text = AppResources.GerarEnderecodeRecebimentoArbitrado;
+            enderecoRemetenteEntry.Placeholder = AppResources.PubKeyRemetente;
+            enderecoArbitroEntry.Placeholder = AppResources.PubKeyArbitro;
         }
 
         private void OnEnderecoLabelTapped(object sender, EventArgs e)

@@ -13,7 +13,8 @@
         <StackLayout VerticalOptions="Center">
             <Label x:Name="labelEndereco"
                 Text="{Binding EnderecoRecebimento}" 
-               HorizontalOptions="Center">
+               HorizontalOptions="Center"
+                   BackgroundColor="LightGray">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnEnderecoLabelTapped" />
                 </Label.GestureRecognizers>
@@ -25,7 +26,8 @@
                 />
             <Label x:Name="labelEnderecoArbitrado"
                 Text="{Binding EnderecoRecebimentoArbitrado}" 
-               HorizontalOptions="Center">
+               HorizontalOptions="Center"
+                   BackgroundColor="LightGray">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnEnderecoArbitradoLabelTapped" />
                 </Label.GestureRecognizers>

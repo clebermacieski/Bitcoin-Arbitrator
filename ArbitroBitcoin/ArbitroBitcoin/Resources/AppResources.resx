@@ -156,4 +156,13 @@
   <data name="EnderecoRemetente" xml:space="preserve">
     <value>Endereço do Remetente</value>
   </data>
+  <data name="GerarEnderecodeRecebimentoArbitrado" xml:space="preserve">
+    <value>Gerar Endereço Arbitrato</value>
+  </data>
+  <data name="PubKeyArbitro" xml:space="preserve">
+    <value>Chave Pública Árbitro</value>
+  </data>
+  <data name="PubKeyRemetente" xml:space="preserve">
+    <value>Chave Pública do Remetente</value>
+  </data>
 </root>

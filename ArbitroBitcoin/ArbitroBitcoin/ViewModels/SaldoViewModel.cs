@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ArbitroBitcoin.ViewModels
 {
@@ -10,7 +11,12 @@ namespace ArbitroBitcoin.ViewModels
         string saldo;
         public SaldoViewModel()
         {
-            Saldo = Negociador.PegarSaldo();
+            PegaSaldoAsync();
+        }
+
+        private async void PegaSaldoAsync()
+        {
+            await Task.Run(() => Saldo = Negociador.PegarSaldo() );
         }
 
         public string Saldo { get => saldo; set => saldo = value; }

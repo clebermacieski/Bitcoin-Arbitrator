@@ -151,6 +151,33 @@ namespace ArbitroBitcoin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Gerar Endereço Arbitrato.
+        /// </summary>
+        internal static string GerarEnderecodeRecebimentoArbitrado {
+            get {
+                return ResourceManager.GetString("GerarEnderecodeRecebimentoArbitrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chave Pública Árbitro.
+        /// </summary>
+        internal static string PubKeyArbitro {
+            get {
+                return ResourceManager.GetString("PubKeyArbitro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chave Pública do Remetente.
+        /// </summary>
+        internal static string PubKeyRemetente {
+            get {
+                return ResourceManager.GetString("PubKeyRemetente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Receber.
         /// </summary>
         internal static string Receber {
