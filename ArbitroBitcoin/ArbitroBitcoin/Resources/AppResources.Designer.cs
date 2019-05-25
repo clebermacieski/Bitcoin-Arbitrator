@@ -88,6 +88,15 @@ namespace ArbitroBitcoin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Assinar Transação.
+        /// </summary>
+        internal static string AssinarTransacao {
+            get {
+                return ResourceManager.GetString("AssinarTransacao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Endereço do Árbitro.
         /// </summary>
         internal static string EnderecoArbitro {
@@ -156,6 +165,15 @@ namespace ArbitroBitcoin.Resources {
         internal static string GerarEnderecodeRecebimentoArbitrado {
             get {
                 return ResourceManager.GetString("GerarEnderecodeRecebimentoArbitrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Importar Transação.
+        /// </summary>
+        internal static string ImportarTransacao {
+            get {
+                return ResourceManager.GetString("ImportarTransacao", resourceCulture);
             }
         }
         

@@ -165,4 +165,10 @@
   <data name="PubKeyRemetente" xml:space="preserve">
     <value>Chave Pública do Remetente</value>
   </data>
+  <data name="AssinarTransacao" xml:space="preserve">
+    <value>Assinar Transação</value>
+  </data>
+  <data name="ImportarTransacao" xml:space="preserve">
+    <value>Importar Transação</value>
+  </data>
 </root>

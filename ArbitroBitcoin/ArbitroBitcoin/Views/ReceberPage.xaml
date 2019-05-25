@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:ArbitroBitcoin.ViewModels"
-    x:Class="ArbitroBitcoin.Views.ReceberPage"
+             x:Class="ArbitroBitcoin.Views.ReceberPage"
              Title="Receber">
 
     <ContentPage.BindingContext>
@@ -12,21 +12,20 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center">
             <Label x:Name="labelEndereco"
-                Text="{Binding EnderecoRecebimento}" 
-               HorizontalOptions="Center"
+                   Text="{Binding EnderecoRecebimento}" 
+                   HorizontalOptions="Center"
                    BackgroundColor="LightGray">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnEnderecoLabelTapped" />
                 </Label.GestureRecognizers>
             </Label>
             <Button x:Name="gerarEndereco"
-                Text="GerarEndereco" 
-                HorizontalOptions="Center"
-                Command="{Binding RetornaEnderecoCommand}"
-                />
+                    Text="GerarEndereco" 
+                    HorizontalOptions="Center"
+                    Command="{Binding RetornaEnderecoCommand}" />
             <Label x:Name="labelEnderecoArbitrado"
-                Text="{Binding EnderecoRecebimentoArbitrado}" 
-               HorizontalOptions="Center"
+                   Text="{Binding EnderecoRecebimentoArbitrado}" 
+                   HorizontalOptions="Center"
                    BackgroundColor="LightGray">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnEnderecoArbitradoLabelTapped" />
@@ -37,10 +36,9 @@
             <Entry x:Name="enderecoArbitroEntry" 
                    Text="{Binding EnderecoArbitro}"/>
             <Button x:Name="gerarEnderecoArbitrado"
-                Text="GerarEnderecoArbitrado" 
-                HorizontalOptions="Center"
-                Command="{Binding RetornaEnderecoArbitradoCommand}"
-                />
+                    Text="GerarEnderecoArbitrado" 
+                    HorizontalOptions="Center"
+                    Command="{Binding RetornaEnderecoArbitradoCommand}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

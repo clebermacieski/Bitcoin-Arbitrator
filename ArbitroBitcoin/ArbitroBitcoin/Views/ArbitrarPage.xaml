@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ArbitroBitcoin.Views.ArbitrarPage"
+             Title="Arbitrar">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button x:Name="botaoImportarTransacao"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" 
+                    Clicked="OnButtonImportarTransacaoClicked"/>
+            <Button x:Name="botaoAssinar"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand"
+                    Clicked="OnButtonAssinarClicked"
+                    IsEnabled="False"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
