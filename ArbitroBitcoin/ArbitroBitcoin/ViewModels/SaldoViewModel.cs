@@ -7,25 +7,28 @@ using System.Threading.Tasks;
 
 namespace ArbitroBitcoin.ViewModels
 {
-    class SaldoViewModel
+    class SaldoViewModel : INotifyPropertyChanged
     {
         string saldo;
         public event PropertyChangedEventHandler PropertyChanged;
-        public SaldoViewModel()
+        public SaldoViewModel() 
         {
             PegaSaldoAsync();
         }
 
         private async void PegaSaldoAsync()
         {
-            await Task.Run(() => Saldo = Negociador.PegarSaldo() );
+            await Task.Run(() => Saldo = Negociador.PegarSaldo());
         }
 
-        public string Saldo {
-            get {
+        public string Saldo
+        {
+            get
+            {
                 return saldo;
-                    }
-            set {
+            }
+            set
+            {
                 if (saldo != value)
                 {
                     saldo = value;
