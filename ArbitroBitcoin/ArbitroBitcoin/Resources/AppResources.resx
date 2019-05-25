@@ -174,4 +174,7 @@
   <data name="AppName" xml:space="preserve">
     <value>Árbitro Bitcoin</value>
   </data>
+  <data name="ModificarTransacao" xml:space="preserve">
+    <value>Modificar Transação</value>
+  </data>
 </root>

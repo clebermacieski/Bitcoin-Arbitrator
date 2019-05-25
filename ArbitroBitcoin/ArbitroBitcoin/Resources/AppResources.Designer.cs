@@ -187,6 +187,15 @@ namespace ArbitroBitcoin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Modificar Transação.
+        /// </summary>
+        internal static string ModificarTransacao {
+            get {
+                return ResourceManager.GetString("ModificarTransacao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Chave Pública Árbitro.
         /// </summary>
         internal static string PubKeyArbitro {

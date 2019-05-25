@@ -16,8 +16,10 @@ namespace ArbitroBitcoin.Views
         public ArbitrarPage()
         {
             InitializeComponent();
+            Title = AppResources.Arbitrar;
             botaoImportarTransacao.Text = AppResources.ImportarTransacao;
             botaoAssinar.Text = AppResources.AssinarTransacao;
+            botaoModificarTransacao.Text = AppResources.ModificarTransacao;
         }
 
         public void OnButtonImportarTransacaoClicked(object sender, EventArgs e)
@@ -27,7 +29,12 @@ namespace ArbitroBitcoin.Views
 
         public void OnButtonAssinarClicked(object sender, EventArgs e)
         {
-            DisplayAlert("Informação", "Exportar arquivo serializado com a transação.", "OK");
+            DisplayAlert("Informação", "Exportar arquivo importado serializado com a transação assinada.", "OK");
+        }
+
+        public void OnButtonModificarClicked(object sender, EventArgs e)
+        {
+            DisplayAlert("Informação", "Exportar arquivo serializado com a transação modificada de acordo com novo consenso.", "OK");
         }
     }
 }
