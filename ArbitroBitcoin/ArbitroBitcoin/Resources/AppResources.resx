@@ -171,4 +171,7 @@
   <data name="ImportarTransacao" xml:space="preserve">
     <value>Importar Transação</value>
   </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Árbitro Bitcoin</value>
+  </data>
 </root>

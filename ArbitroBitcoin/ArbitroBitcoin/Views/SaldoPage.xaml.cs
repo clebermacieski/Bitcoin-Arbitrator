@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArbitroBitcoin.Resources;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace ArbitroBitcoin.Views
         public SaldoPage()
         {
             InitializeComponent();
+            Title = AppResources.AppName;
         }
     }
 }

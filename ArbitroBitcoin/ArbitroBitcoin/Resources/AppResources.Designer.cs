@@ -61,6 +61,15 @@ namespace ArbitroBitcoin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Árbitro Bitcoin.
+        /// </summary>
+        internal static string AppName {
+            get {
+                return ResourceManager.GetString("AppName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Arbitrar.
         /// </summary>
         internal static string Arbitrar {
