@@ -1,0 +1,510 @@
+%% abtex2-modelo-artigo.tex, v-1.9.7 laurocesar
+%% Copyright 2012-2018 by abnTeX2 group at http://www.abntex.net.br/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://www.abntex.net.br/
+%%
+%% This work consists of the files abntex2-modelo-artigo.tex and
+%% abntex2-modelo-references.bib
+%%
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% abnTeX2: Modelo de Artigo Acadêmico em conformidade com
+% ABNT NBR 6022:2018: Informação e documentação - Artigo em publicação 
+% periódica científica - Apresentação
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\documentclass[
+	% -- opções da classe memoir --
+	article,			% indica que é um artigo acadêmico
+	11pt,				% tamanho da fonte
+	oneside,			% para impressão apenas no recto. Oposto a twoside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	subsubsection=TITLE, % títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	sumario=tradicional
+	]{ifrs-artigo-abntex2}
+
+
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{nomencl} 			% Lista de simbolos
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+% ---
+		
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+		
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+% ---
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+% --- Informações de dados para CAPA e FOLHA DE ROSTO ---
+\titulo{Gerenciamento de Negociação com Arbitragem em \textit{Blockchain}}
+%\tituloestrangeiro{}
+
+\curso{Tecnologia em Análise e Desenvolvimento de Sistemas 01/2019}
+
+\autor{Discente: Cléber Macieski\footnote{cleber.macieski@gmail.com}}
+
+\orientador{ Rafael Vieira Coelho\footnote{rafael.coelho@ifrs.edu.br}}
+
+\instituicao{Instituto Federal de Educação Ciência e Tecnologia do Rio Grande do Sul}
+\local{Campus Farroupilha}
+
+\data{\today}
+% ---
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={Modelo de artigo científico com abnTeX2},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{atigo científico}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ---
+% Altera as margens padrões
+% ---
+\setlrmarginsandblock{3cm}{2cm}{*}
+\setulmarginsandblock{3cm}{2cm}{*}
+\checkandfixthelayout
+% ---
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% Espaçamento simples
+\SingleSpacing
+
+\setlength{\ABNTEXcitacaorecuo}{1.8cm}
+% ----
+% Início do documento
+% ----
+\begin{document}
+% Seleciona o idioma do documento (conforme pacotes do babel)
+%\selectlanguage{english}
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+
+%---
+%
+% Se desejar escrever o artigo em duas colunas, descomente a linha abaixo
+% e a linha com o texto ``FIM DE ARTIGO EM DUAS COLUNAS''.
+% \twocolumn[    		% INICIO DE ARTIGO EM DUAS COLUNAS
+%
+%---
+
+% página de titulo principal (obrigatório)
+%\maketitle
+\imprimircapa
+% titulo em outro idioma (opcional)
+\hrule
+% resumo em português
+\renewcommand{\resumoname}{}
+\begin{resumo}
+\textbf{Resumo:} Criptomoedas tem se mostrado cada vez mais confiáveis e valiosas. As possibilidades de uso para a tecnologia de criptomoedas ainda está aberta a novas implementações, as quais tornam ainda mais útil esta tecnologia. Este artigo apresenta a idéia que auxilia o usuário de determinada rede de criptomoedas em suas transações, a fim permitir realizá las de maneira arbitrada, por um terceiro elemento bem como explicita as características desejáveis a um software com tal funcionalidade.
+ 
+ \vspace{\onelineskip}
+ 
+ \noindent
+ \textbf{Palavras-chave}: Criptomoedas. \textit{Blockchain}. Multi-Assinaturas.
+\end{resumo}
+\hrule
+
+% resumo em inglês
+\renewcommand{\resumoname}{}
+\begin{resumoumacoluna}
+ \begin{otherlanguage*}{english}
+   \textbf{Abstract:} According to ABNT NBR 6022:2018, an abstract in foreign language is optional.
+
+   \vspace{\onelineskip}
+ 
+   \noindent
+   \textbf{Keywords}: latex. abntex.
+ \end{otherlanguage*}  
+\end{resumoumacoluna}
+\hrule
+
+% ]  				% FIM DE ARTIGO EM DUAS COLUNAS
+% ---
+
+\begin{center}\smaller
+\textbf{Data de submissão e aprovação}: elemento obrigatório. Indicar dia, mês e ano
+
+\textbf{Identificação e disponibilidade}: elemento opcional. Pode ser indicado 
+o endereço eletrônico, DOI, suportes e outras informações relativas ao acesso.
+\end{center}
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+% ----------------------------------------------------------
+% Introdução
+% ----------------------------------------------------------
+\section{Introdução}
+\begin{citacao}
+Di-nhe-iro: Meio de troca, sob a forma de moedas ou notas, usado na aquisição de bens, na compra de serviços, de mão-de-obra, ou noutras transações financeiras, emitido pelo governo de cada país \cite{pribeream2013}.
+\end{citacao}
+Em dado momento da evolução do ser humano o mesmo tornou-se capaz de dominar animais e plantas, de tal forma que a vida da espécie, anteriormente atrelada a uma rotina ditada pelo ritmo da caça e coleta de alimentos, passou a dispor de uma crescente quantidade de tecnologias voltadas, inicialmente, a produção dos bens essenciais \cite{costa2009}. Juntamente a estas novas técnicas, a espécie se organizou socialmente, e passou a dividir as tarefas, a fim de aumentar a eficiência de tais técnicas. Nesta divisão, indivíduos utilizaram as técnicas em trabalhos diversos e passaram a dominá-las e evoluí-las, de maneira especializada, definindo o início das profissões. 
+
+Em paralelo, a vontade de obter bens e serviços de outros definiu o comércio. Inicialmente, sistemas de troca eram a solução utilizada para realizar o comércio, porém, devido às evoluções tecnológicas, a espécie humana passou a dispor de um excedente de bens, os quais possibilitaram um aumento populacional, num ciclo que se retro-alimenta \cite{nogueira2018}.
+
+Com esse crescente, o comércio passou a ficar cada vez mais complexo e problemas surgiram. Por exemplo, para conseguir obter bens de comerciantes não interessados em nada diretamente produzido por determinado produtor, havia a necessidade da formação de cadeias de relações comerciais que se mostravam ineficientes. Além disso, a troca por vezes se mostrava ineficaz no fato de que o valor estimado de determinado bem em relação a outro se mostrava incorreto ou até falso.
+
+Com base neste tipo de problema delimitou-se a necessidade de padronizar  um valor para as coisas, um modelo de referência que servisse de intermediário nas relações de comércio e que inspirasse confiança aos envolvidos. E assim nasceu o conceito de moeda \cite{britannica2018}.
+
+No início de sua utilização, a moeda foi cunhada em metais como prata e ouro, onde identificaram-se outros problemas: (a)transações de grandes quantias se tornavam difíceis; (b)armazenamento de moeda; e (c)se tornou necessário a existência de um intermediário nas transações, que fornecesse a moeda padrão, o que aumentava o custo das transações.A participação dos bancos se consolidou. Eles eram utilizados para guardar o dinheiro dos indivíduos de maneira relativamente segura, auxiliar em transações e prover serviços financeiros, a juros.
+
+Ainda sim, a utilização de metais como moeda se mostrou ineficaz, assim sendo, as sociedades criaram o papel moeda. Tal tipo de moeda não possui valor por si só como os metais anteriormente utilizados, mas é produzida de maneira  a ser de difícil cópia e era inicialmente lastreada em referência a um estoque de metal precioso existente no país, medidas que garantiam a escassez e, consequentemente, um valor relativo. Efetivamente, era possível trocar papel moeda por metal precioso nos bancos. Este modelo lastreado causou problemas: (a) Podia não suprir a demanda de dinheiro da sociedade, devido ao aumento da disponibilidade dos metais não estar estritamente relacionado com as necessidades financeiras da economia; (b) Um país talvez não conseguisse isolar sua economia da crise ou inflação do resto do mundo; (c) O processo de ajuste para um país com um deficit poderia ser longo e doloroso.
+
+Assim sendo, a maioria dos países do mundo abandonou o lastro e passou a usar um sistema financeiro no qual o governo busca definir junto a um banco central a quantidade de dinheiro disponível \cite{rothbard1995}. Esta abordagem traz os problemas atualmente existentes no sistema financeiro:(a) Custos extras na transação: a utilização de intermediários para possibilitar transações ou outras operações financeiras exige que as partes envolvidas paguem por serviços diversos. (b) Liberdade: a necessidade de intermediários limita a liberdade do indivíduo em realizar transações. (c) Inflação: a desvalorização da moeda de um país, causada por um grande disponibilidade de moeda, que quando descontrolada aumenta o custo dos produtos para o consumidor. (d) Deflação: a valorização da moeda, devido a baixa disponibilidade de moeda na economia, que a longo prazo em um cenário de recessão, pode gerar por exemplo, desemprego. (e) Na economia globalizada atual, problemas financeiros das nações provocam reações em cadeia, afetando diversos países.
+
+Estas limitações do sistema monetário atual causam diversos problemas, como instabilidade econômica, pobreza, disfunções sociais e guerras.
+
+\subsection{Criptomoedas e a Tecnologia \textit{Blockchain}}
+Através das técnicas de criptografia e da computação distribuída, foi desenvolvida a tecnologia \textit{blockchain}, que define um protocolo de comunicação eletrônico, o qual por sua vez possibilita a implementação das chamadas criptomoedas.
+
+Entre as particularidades da implementação efetiva de uma criptomoeda, está a capacidade de lidar com problema do gasto múltiplo de uma mesma moeda. E a solução de tal problema veio ser ser criada através da criptografia utilizada na tecnologia \textit{blockchain}.
+
+A tecnologia \textit{blockchain}, intimamente ligada as criptomoedas, pode ser considerada um livro-razão, ou no inglês, \textit{ledger}, na qual transações são registradas, e validados como únicas, utilizando de criptografia e de uma rede \textit{peer-to-peer} para tal.
+
+Criptomoedas impactam diretamente no sistema monetário atual:(a) A capacidade de distribuir, entre próprios indivíduos na rede, a possibilidade de realizar o trabalho de intermédio de transações, pode se mostrar, em diversos níveis, uma opção barata e eficaz na resolução do problema. (b) Utilizando a rede mundial de computadores, pode promover a liberdade a povos antes relegados o um sistema econômico restrito. (c) A auto regulação determinada na implementação do sistema pode acabar com os problemas gerados pela ingerência de governantes,  atuar na estabilização do sistema econômico mundial. (d) Devido ao sistema ser baseado em um código aberto, a segurança do mesmo pode ser verificada por qualquer um, assim como qualquer pesquisador pode buscar melhorar a implementação do sistema. (e) A tecnologia de livro-razão distribuído possui capacidades ainda pouco exploradas, para auto-processar transações, na qual regras podem ser persistidas dentro \textit{blockchain}, e serem executadas de maneira automática.
+
+\subsection{Objetivo Geral}
+Utilizar da tecnologia \textit{blockchain} para produzir um aplicativo para dispositivos móveis capaz de gerenciar transações que estabeleçam contratos inteligentes, delegando arbitragem a um ou mais participantes extras a transação.
+
+\subsection{Objetivos Específicos}
+\begin{itemize}
+	\item Implementar solução para criptomoedas para dispositivos móveis.
+	\item Explorar as capacidades da tecnologia \textit{blockchain}, principalmente para transferências e criação/execução de contratos inteligentes.
+\end{itemize}
+
+\section{Revisão Bibliográfica}
+
+\section{Referencial Teórico}
+
+\subsection{Criptografia}
+A tecnologia de criptomoedas funciona amplamente baseada em métodos de cálculo de \textit{hash} e de criptografia assimétricos \cite{masterBit}. Criptografia é o estudo de técnicas matemáticas relacionadas a aspectos da segurança da informação como confidencialidade, integridade de dados, autenticação de entidades e autenticação de origem de dados \cite{katz1996handbook}.
+As ferramentas de criptografia podem ser avaliadas conforme critérios como nível de segurança, funcionalidade, métodos de operação, performance e facilidade de implementação. O entendimento das atuais ferramentas de criptografia exige  a compreensão do conceito de função, no sentido matemático, que no escopo da criptografia podem ser referidas como mapeamento ou transformação \cite{katz1996handbook}.
+
+\subsubsection{Funções de uma Via (\textit{One-way Functions})}
+Uma função  de uma via é definida como: Uma função $f$ de um conjunto $X$ para um conjunto $Y$ cujo $f(x)$ é "fácil" de computar para todo $x$ pertencente a $X$ mas para "essencialmente todos" elementos $y$ pertencentes a $Im(f)$ é computacionalmente inviável encontrar qualquer $x$ pertencente a $X$ o qual $f(x) = y$. Exemplo: Dado $X = \{1,2,3,...,16\}$ e definido $f(x) = r_x$ para todo $x$ pertencente a $X$ onde $r_x$ é o resto quando $3^x$ é dividido por 17:
+
+\begin{table}[htb]
+  \begin{center}
+    \label{tabela-oneway}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+      \hline
+      $x$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 \\
+      $f(x)$ & 3 & 9 & 10 & 13 & 5 & 15 & 11 & 16 & 14 & 8 & 7 & 4 & 12 & 2 & 6 & 1 \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+Dado um número entre 1 e 16, é relativamente fácil encontrar a imagem dele abaixo de $f$. De qualquer forma, dado um número como 7, sem esta tabela, é difícil encontrar $x$ dado que $f(x) = 7$. Claro que, se o número dado é 3, o valor de $x$ será facilmente encontrado, $x$ será 1. O ponto é que aplicar a função em um $x (f(x))$, para achar seu $y$, é fácil e relativamente muito mais fácil que dado somente a $f(x)$ e consequentemente seu resultado, encontrar o $x$ que resolve para esse resultado \cite{katz1996handbook}.
+
+\subsubsection{Funções \textit{Hash}}
+Funções de \textit{hash} são uma subtipo de função de uma via, que são computacionalmente eficientes para mapear dados de tamanho arbitrário para dados de tamanho fixo. A ideia básica é que o valor do \textit{hash} de determinado dado serve como uma representação compacta de um tamanho sempre igual deste dado. Para uma função de \textit{hash} ter uso criptográfico, deve ser computacionalmente inviável encontrar dois valores de entrada para ela, que computam para um mesmo valor de saída \textit{hash} (tal fato, se ocorre, é chamado de colisão). Um uso comum de funções de para cálculo de \textit{hashs} se dá na verificação de integridade de dados ao longo do tempo, onde um \textit{hash} gerado anteriormente é comparado com um novo cálculo de \textit{hash} sobre os mesmos dados a fim de verificar que não ocorreram mudanças \cite{katz1996handbook}.
+
+\subsubsection{\textit{Trapdoor One-way Functions}}
+Funções do tipo \textit{Trapdoor}, ou funções de uma via alçapão,são outro subtipo de função de uma via, na qual, apesar da dificuldade de encontrar $x$ dado $f(x)$, é possível dar um segundo dado a ser computado (chamado informação de \textit{trapdoor}), o qual torna o cálculo facilitado \cite{katz1996handbook}.
+
+\subsubsection{Criptografia de Chave Pública/Privada}
+Criptografia de chave pública utilizada de \textit{one-way trapdoor functions}. O uso deste tipo de função permite a criação de duas chaves criptográficas distintas, com a propriedade que se usada uma destas chaves para encriptação, somente a outra poderá decriptar a cifra criada. Nem mesmo a chave que foi usada para criar a cifra pode descriptografar a mensagem. Um esquema de criptografia é chamado de esquema de encriptação de chave-pública se para cada par de encriptação/decriptação $(e,d)$, uma chave e (a chave pública) fica publicamente disponível, enquanto a outra chave d (a chave privada) é mantida secreta. Para o esquema ser considerado seguro, é necessário que seja computacionalmente  inviável computar $d$ a partir de $e$. Como analogia é possível pensar em um cofre com uma combinação a qual somente Bob conhece. Se Bob deixar o cofre aberto, qualquer um pode colocar dados no cofre e tranca-lo, mas somente Bob poderá abri-lo. Nem mesmo quem trancou o cofre poder-a fazê-lo \cite{katz1996handbook}.
+
+\subsubsection{Assinaturas Digitais}
+O propósito da assinatura digital (ou de qualquer método de assinatura) é prover um meio pelo qual uma entidade tem sua identidade ligada a uma informação. Para tal, é comum a utilização de criptografia assimétrica.
+
+\subsection{Blockchain}
+O que é e como funciona...
+
+\subsection{Bitcoin}
+
+\subsubsection{Transações Bitcoin: Definição e Funcionamento}
+Transações permitem aos usuários da rede de criptomoedas o gasto de valores representados pelas próprias transações \cite{bitcoinDev}. Em termos simples uma transação diz a rede que o possuidor de um valor em criptomoeda autorizou a transferência da mesma para um novo dono. O novo dono pode criar outra transação para transferi-la para um subsequente e assim por diante \cite{masterBit}.
+Uma transação contém diversos dados com funcionalidades diversas usadas em contextos diversos. Abaixo segue a uma descrição simplificada de uma transação em um contexto comum, do tipo \textit{Pay-to-Public-Key-Hash} (que será definido mais adiante).
+
+Alice, a compradora, encontra um anúncio de um smartphone usado, o qual Bob, o vendedor, dispõe a opção de receber o pagamento em Bitcoins. Ele marcam de se encontrar para realizar a transação.
+A fim de que Alice possa enviar o valor que ela já possui previamente, Bob deverá enviar o endereço no qual ele deseja receber os valores.
+Para Bob criar um endereço Bitcoin para recebimento ele gera um par de chaves pública e privada com o ECDSA (\textit{Ellipc Curve Digital Signature Algorithm})  com a curva secp256k1, algoritmo padrão para essa etapa da operação na rede Bitcoin. Após, ele executa o cálculo do \textit{hash} da chave pública (pubkey) deste par. Ele constrói o endereço com um número de versão, este \textit{hash} da pubkey, e um \textit{checksum} para verificação de erros de digitação, e codifica tudo em uma string base58.
+
+Alice de posse desse endereço, o decodifica para acessar o \textit{hash} da pubkey do Bob. Ela utiliza este \textit{hash} para criar o chamado pubkey \textit{script} da transação. Quem provar possuir a chave privada gerada juntamente com a chave pública disponível no pubkey \textit{script} poderá gastar esta transação. Ela constrói o output da transação informando no campo \textit{value}, a quantidade de unidades a ser enviada, e referenciando este pubkey \textit{script} recém criado.
+O input da transação que Alice criá, referência, através dos chamados txid’s, \textit{outputs} de uma ou mais transações anteriores, registradas no \textit{blockchain}, a qual ela possui a chave privada correspondente ao \textit{hash} da chave pública contido no pubkey \textit{script}. Os \textit{outputs} destas transações anteriores devem ter a soma do campo value resultante em no mínimo o valor do informado no output da transação que Alice está criando. Este conjunto de referências é chamado \textit{outpoint}.
+Para o input, Alice também cria o \textit{signature script} ou scriptSigs. Este \textit{script} contém a chave pública completa informada para endereçar os \textit{scripts} aos quais ela está referenciando no campo \textit{outpoint}. Ele também contém dados das transações origem assinados digitalmente com a chave privada correspondente a cada chave pública de cada output referenciado no \textit{outpoint}.
+Alice então constrói o input da transação com o conjunto de referências a \textit{outputs} de origem (campo \textit{outpoint}), o \textit{signature script} e \textit{sequence numbers} (números de sequência.
+
+Por fim, Alice divulga essa transação, que é validada pelos pares da rede, adicionada ao \textit{blockchain}, e categorizada como UTXO (\textit{Unspend Transaction Output}), pois ainda não existem inputs subsequentes apontando para o output desta transação \cite{bitcoinDev}.
+
+Uma transação divulgada na rede só é incluída no \textit{blockchain} após ser validada pelo processo de mineração. A validação de uma transação na rede se dá com base nas regras de consenso incutidas na mesma, aplicadas nos dados disponibilizados pela transação e divulgadas para todos os nós da rede \cite{masterBit}.
+A criptomoeda Bitcoin utiliza de uma linguagem de \textit{script} para transações chamada simplesmente de “Script”, que é baseada em um execução em pilha, de notação polonesa reversa, parecida com a linguagem Forth. Ela também é uma linguagem classificada como Touring incompleta e sem estado \cite{masterBit}.
+
+\subsubsection{Transação: Estrutura Básica e Principais Tipos}
+Transações em Bitcoin são transmitidas entre pares na rede em um formato serializado, chamado de formato bruto. Diversas ferramentas utilizadas para manipular dados da rede utilizam a notação hexadecimal para exibi-las. Abaixo segue tabela com descrição de uma transação no chamado \textit{transaction-level} \cite{bitcoinDev}:
+
+\begin{table}[htb]
+\IBGEtab{
+\label{tabela-transacao}
+\caption{Estrutura de uma transação.}
+}{
+\begin{tabular}{cccc}
+\toprule
+\textit{Bytes} & Nome & Tipo de Dados & Descrição \\
+\midrule \midrule
+4 & \textit{version} & uint32\_t & Versão da transação. \\
+
+Variável & tx\_in count & \href{https://bitcoin.org/en/glossary/compactsize}{compactSize uint} & Números de inputs da transação. \\
+
+Variável & tx\_in & \href{https://bitcoin.org/en/glossary/input}{txIn} & Inputs da transação. \\
+
+Variável & tx\_out count & \href{https://bitcoin.org/en/glossary/compactsize}{compactSize uint} & Número de \textit{outputs} da transação. \\
+
+Variável & tx\_out & \href{https://bitcoin.org/en/glossary/output}{txOut} & Outputs da transação. \\
+
+4 & lock\_time & uint32\_t & Um tempo (\href{https://en.wikipedia.org/wiki/Unix_time}{\textit{Unix epoch time}}) ou número de bloco.\\
+
+\bottomrule
+\end{tabular}
+}{
+%\fonte{Produzido pelos autores}
+%\nota{Esta é uma nota, que diz que os dados são baseados na regressão linear.}
+%\nota[Anotações]{Uma anotação adicional, seguida de várias outras.}
+}
+\end{table}
+
+\begin{itemize}
+	\item \textit{VERSION}: Campo com a função de possibilitar a implementação de novas regras sem invalidar anteriores.
+	\item TX\_IN\_COUNT: Quantidade de inputs da transação.
+	\item \textit{TX\_IN}: \textit{Inputs} da transação, contendo três campos: o \textit{outpoint}, um \textit{signature script} e um \textit{sequence number} \cite{bitcoinGloss}.
+	\item TX\_OUT\_COUNT: Quantidade de \textit{outputs} da transação.
+	\item TX\_OUT: \textit{Outputs} da transação, contendo dois campos: o campo \textit{value} informando o valor da transação em unidades e um pubkey \textit{script} \cite{bitcoinGloss}.
+	\item LOCK\_TIME: O campo LOCK\_TIME existe no \textit{transaction-level} desde o começo da utilização da tecnologia. Tal campo define, a partir de que tempo aquela transação poderá ser gasta pelo possuidor (válida na rede). Tal campo adiciona a dimensão de tempo a transações, assemelhando-se com um cheque pré-datado, mas com garantia de não compensação prévia ao tempo estipulado.
+Valores abaixo de 500 milhões no campo, estipulam o bloco futuro do \textit{blockchain} no qual a transação será válida, valores acima deste são interpretados como \textit{Unix Epoch timestamp’s} (segundos desde 1-Jan-1970). O valor zero não restringe a validação imediata da transação. Essa configuração não tem uma grande limitação. O recebedor não tem garantia que aquela transação ainda não terá sido gasta até a data que ele pode fazê-lo, ou seja, o pagador poderá gastar e invalidar a transação antes de ser possível para o recebedor. A fim de implementar a garantia de validade de transação com LOCK\_TIME, foi implementado posteriormente na rede (BIB-65) o CLTV(\textit{Check Lock Time Verify}) que permite a validação da transação do pagador, mas não possibilita o gasto pelo recebedor até o tempo futuro definido \cite{masterBit}.
+\end{itemize}
+
+Transações processadas na rede Bitcoin podem enviar Bitcoins para novos donos com um \textit{script Pay to Public Key Hash} ou P2PKH \textit{script}. Estes \textit{scripts} estão contidos na parte anteriormente citada, o \textit{output} da transação. Estes \textit{scripts} de travamento efetivamente travam a transação para um \textit{hash} de chave pública, mais conhecido como endereço Bitcoin. Eles podem ser destravados (gastos), essencialmente, pela apresentação de uma chave pública e de uma assinatura digital correspondente a chave privada da chave pública utilizada para a criação do endereço Bitcoin travado \cite{masterBit}.
+Também existem os chamados \textit{Pay to Script Hash}, ou P2SH. São \textit{scripts} de um tipo de transação mais novo, introduzido em 2012, que simplifica a criação de uma transação complexa, através da substituição dos \textit{scripts} de validação complexos por um assinatura digital dos mesmos \cite{masterBit}.
+
+\subsection{Ferramentas}
+
+\subsubsection{C{\#} e .NET}
+
+\subsubsection{\textit{Framework} NBitcoin}
+NBitcoin é uma biblioteca Bitcoin que utiliza o \textit{framework}.NET. A mesma é de código aberto e mantida pela comunidade e por seu criador, Nicolas Dorier. NBitcoin dispõe de ferramentas básicas para a implementação de softwares capazes de interagir com diferentes \textit{blockchains} e facilita a construção de soluções para criptomoedas usando a linguagem de programação C{\#}. Ela implementa a grande maioria dos BIP’s Bitcoin \cite{heHenry2018}.
+
+\subsubsection{API's}
+Uma API (\textit{Application Programing Interface}) ou Interface de Programação de Aplicação, é um conjunto de protocolos, rotina, funções e/ou comandos que programadores usam para desenvolver software ou facilitar a interação entre sistemas distintos \cite{techoAPI2018}. Existem inúmeras API’s disponíveis para criptomoedas, , cuja finalidade é fornecer informações sobre um ou mais \textit{blockchain’s} no qual as criptomoedas se baseiam. As mesmas podem ser classificadas quanto a  funcionalidades como: (a) Integração com Carteiras: capacidade de trabalhar com diversas carteiras. (b) Suporte a transações: capacidade de enviar ou receber as mesmas.(c)Preço. (d)Capacidades Especiais \cite{lastcAPIS}.
+
+\begin{table}[htb]
+\IBGEtab{
+\label{tabela-apis}
+\caption{Tabela Comparativa de Algumas API's.:}
+}{
+\begin{tabular}{ccccc}
+\toprule
+API & Integração & Suporte a  & Habilidades & Preço \\
+    &            & Transações & Especiais   &       \\
+\midrule \midrule
+ Digital Currency Tickers & Não & Não & Sim & Livre \\
+ Crypto Market Intraday Reference Rates & Não & Não & Sim & Livre \\
+ CoinAPI &  Não & Não & Sim & Livre \\
+ ICOs & Não & Não & Sim & Planos Variados \\
+ Due Diligence & Não & Não & Sim & Livre \\
+ Global Bitcoin Price Index & Não & Não & Sim & Livre \\
+ Coinbase & Sim & Sim & Sim & Livre \\
+ CoinMarketCap & Não & Não & Sim & Livre \\
+ Nexchange & Sim & Sim & Sim & Taxas de Câmbio \\
+ GetBalance & Sim & Não & Não & Livre \\
+ BitcoinAverage & Não & Não & Sim & Planos Variados \\
+ Bitcointy & Não & Não & Sim & Livre \\
+ Bitcoin ATMs & Não & Não & Sim & Planos Variados \\
+\bottomrule
+\end{tabular}
+}{
+\fonte{\cite{lastcAPIS}}
+%\nota{Esta é uma nota, que diz que os dados são baseados na regressão linear.}
+%\nota[Anotações]{Uma anotação adicional, seguida de várias outras.}
+}
+\end{table}
+
+Na  \autoref{tabela-apis} citaram-se API's comerciais. Para fins de desenvolvimento acadêmico, destaca-se a API QBit Ninja é uma API desenvolvida em código aberto, criada pelo mesmo autor do \textit{framework} C{\#} NBitcoin sendo dependente da classe "NBitcoin.Indexer" que por sua vez apoia-se no serviço de armazenamento Azure da Microsoft, devido a mesma ser de código aberto a de facilitada utilização e extensão \cite{qbitNinja}.
+
+
+\section{Desenvolvimento}
+O software assim como a tecnologia de criptomoedas se baseiam na tecnologia de criptografia assimétrica a qual permite garantir a unicidade de cada transação na rede e promove a segurança na transmissão de dados, sendo largamente utilizada por diversas instituições do sistema monetário tradicional \cite{rouse2018}.
+O recurso de de \textit{scripts} de multi-assinatura definem uma condição onde N chaves públicas são gravada no script e pelo menos M dos controladores destas chaves devem fornecer assinaturas a fim de desbloquear os fundos representados nessa transação \cite{masterBit}. Esse tipo de \textit{script} será utilizado no projeto a fim de criar transações arbitradas.
+A fim de desenvolver o software será utilizada a linguagem C{\#}, que é uma linguagem de programação orientada a objetos, fortemente tipada que permite a criação de softwares robustos e seguros executados no .NET \textit{framework}, tendo um sintaxe parecida as principais linguagens de programação do mercado  \cite{wagner2015}.
+A fim de analisar as informações da rede, será utilizada a API web QBitNinja, que é hospedada por terceiros e disponibiliza informações sobre blocos , transações e endereços no \textit{blockchain} Bitcoin \cite{progblockC}.
+A rede de criptomoedas na qual o software se baseará será a do Bitcoin. Bitcoin constitui-se de uma  coleção de conceitos e tecnologias que formaram a mais conhecida e valorizada criptomoeda do mercado. Unidades da moeda digital são utilizadas para guardar e transmitir valor pelos participantes da rede. Os seus usuários se comunicam através do protocolo Bitcoin, principalmente via internet, mas no entanto, outras redes podem ser utilizadas. O protocolo Bitcoin é disponibilizado de maneira \textit{open source} e pode rodar em uma larga gama de dispositivos de computação, incluindo computadores portáteis e smartphones, fazendo esta tecnologia altamente acessível \cite{masterBit}.
+
+\section{Método}
+A implementação desta solução capacitará o usuário a realizar transações em dispositivos móveis de maneira mais segura e habilitar uma maior liberdade financeira dos indivíduos reduzindo custos e aumentando a competitividade de pequenos negociantes no mercado. A simplificação da utilização de terceiros na arbitragem de conflitos tornará o processo menos custoso para as partes, mantendo um nível de segurança adequado para diverso tipos de negociações comuns.
+
+% ---
+% Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
+% ---
+\bookmarksetup{startatroot}% 
+% ---
+
+% ---
+% Conclusão
+% ---
+\section{Considerações finais}
+Do atingimento dos objetivos do projeto espera-se dispor uma ferramenta de software para dispositivos móveis capaz de realizar transações arbitradas, incluindo um terceiro elemento em uma transação de binária de criptomoedas que realize as mesmas a um custo menor, de maneira simples e eficaz. A aplicação deverá explorar plenamente a capacidade de distribuir o trabalho de processamento das transações entre os indivíduos na rede, promover a liberdade dos usuários liberando-os cada vez mais da utilização dos sistemas tradicionais de negociação, manter as transações  a um nível de segurança e confiabilidade nos mecanismos de resolução de conflitos e servir como uma experiência útil a disseminação da informação sobre as capacidades da rede.
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{arbitrador-blockchain-abntex2-modelo-references}
+% ----------------------------------------------------------
+% Glossário
+% ----------------------------------------------------------
+%
+% Há diversas soluções prontas para glossário em LaTeX. 
+% Consulte o manual do abnTeX2 para obter sugestões.
+%
+%\glossary
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+
+% ---
+% Inicia os apêndices
+% ---
+%\begin{apendicesenv}
+%
+%% ----------------------------------------------------------
+%\chapter{Nullam elementum urna vel imperdiet sodales elit ipsum pharetra ligula
+%ac pretium ante justo a nulla curabitur tristique arcu eu metus}
+%% ----------------------------------------------------------
+%\lipsum[55-56]
+%
+%\end{apendicesenv}
+%% ---
+%
+%% ----------------------------------------------------------
+%% Anexos
+%% ----------------------------------------------------------
+%\cftinserthook{toc}{AAA}
+%% ---
+%% Inicia os anexos
+%% ---
+%%\anexos
+%\begin{anexosenv}
+%
+%% ---
+%\chapter{Cras non urna sed feugiat cum sociis natoque penatibus et magnis dis
+%parturient montes nascetur ridiculus mus}
+%% ---
+%
+%\lipsum[31]
+%
+%\end{anexosenv}
+%
+%% ----------------------------------------------------------
+%% Agradecimentos
+%% ----------------------------------------------------------
+%
+%\section*{Agradecimentos}
+%Texto sucinto aprovado pelo periódico em que será publicado. Último 
+%elemento pós-textual.
+
+\end{document}

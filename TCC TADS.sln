@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArbitroBitcoin.Android", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArbitroBitcoin.iOS", "ArbitroBitcoin\ArbitroBitcoin.iOS\ArbitroBitcoin.iOS.csproj", "{322CE5B8-669C-4B65-854C-024E6C7A3204}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArbitroBitcoin", "ArbitroBitcoin\ArbitroBitcoin\ArbitroBitcoin.csproj", "{0051A764-F0C5-494D-B154-E57649720E26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArbitroBitcoin", "ArbitroBitcoin\ArbitroBitcoin\ArbitroBitcoin.csproj", "{0051A764-F0C5-494D-B154-E57649720E26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

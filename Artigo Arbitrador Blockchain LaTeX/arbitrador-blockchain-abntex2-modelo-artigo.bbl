@@ -1,0 +1,120 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.7 }
+
+\bibitem[Antonopoulos 2017]{masterBit}
+\abntrefinfo{Antonopoulos}{ANTONOPOULOS}{2017}
+{ANTONOPOULOS, A.~M. \emph{Mastering Bitcoin}: Programming the open blockchain.
+  2. ed. O'Reilly Media, 2017. Dispon{\'\i}vel em:
+  \url{https://github.com/bitcoinbook}. Acesso em: 29 nov. 2018.}
+
+\bibitem[Bitcoin.org 2019]{bitcoinDev}
+\abntrefinfo{Bitcoin.org}{BITCOIN.ORG}{2019a}
+{BITCOIN.ORG. \emph{Bitcoin Developer Documentation}.
+[S.l.], 2019. Dispon{\'\i}vel em:
+  \url{https://bitcoin.org/en/developer-documentation}. Acesso em: 16 set.
+  2018.}
+
+\bibitem[Bitcoin.org 2019]{bitcoinGloss}
+\abntrefinfo{Bitcoin.org}{BITCOIN.ORG}{2019b}
+{BITCOIN.ORG. \emph{Bitcoin Developer Glossary}. 2019. Dispon{\'\i}vel em:
+  \url{https://bitcoin.org/en/developer-glossary}. Acesso em: 24 fev. 2019.}
+
+\bibitem[Costa 2009]{costa2009}
+\abntrefinfo{Costa}{COSTA}{2009}
+{COSTA, R. Por que inventaram o dinheiro?
+\emph{nova escola}, set. 2009.
+Dispon{\'\i}vel em:
+  \url{https://novaescola.org.br/conteudo/2273/por-que-inventaram-o-dinheiro}.
+  Acesso em: 15 set. 2018.}
+
+\bibitem[Dorier 2017]{qbitNinja}
+\abntrefinfo{Dorier}{DORIER}{2017}
+{DORIER, N. \emph{QBit Ninja}.
+[S.l.], 2017. Dispon{\'\i}vel em: \url{https://qbitninja.docs.apiary.io/\#}.
+  Acesso em: 17 mar. 2019.}
+
+\bibitem[Dorier 2018]{progblockC}
+\abntrefinfo{Dorier}{DORIER}{2018}
+{DORIER, N. \emph{Programming The Blockchain in C{\#}}. 2. ed. [s.n.], 2018.
+  Dispon{\'\i}vel em:
+  \url{https://programmingblockchain.gitbook.io/programmingblockchain}. Acesso
+  em: 29 nov. 2018.}
+
+\bibitem[ENCYCLOPAEDIA BRITANNICA 2018]{britannica2018}
+\abntrefinfo{ENCYCLOPAEDIA BRITANNICA}{ENCYCLOPAEDIA BRITANNICA}{2018}
+{ENCYCLOPAEDIA BRITANNICA. \emph{Gold Standard}. Encyclopædia Britannica, inc,
+  2018. Dispon{\'\i}vel em:
+  \url{https://www.britannica.com/topic/gold-standard}. Acesso em: 16 set.
+  2018.}
+
+\bibitem[He 2018]{heHenry2018}
+\abntrefinfo{He}{HE}{2018}
+{HE, H. Nbitcoin: Introduction to nbitcoin.
+\emph{C{\#}Corner}, aug. 2018.
+Dispon{\'\i}vel em:
+  \url{https://www.c-sharpcorner.com/article/introduction-to-nbitcoin/}. Acesso
+  em: 31 mar. 2019.}
+
+\bibitem[Katz et al. 1996]{katz1996handbook}
+\abntrefinfo{Katz et al.}{KATZ et al.}{1996}
+{KATZ, J. et al. \emph{Handbook of applied cryptography}. [S.l.]: CRC press,
+  1996.}
+
+\bibitem[LastCall 2018]{lastcAPIS}
+\abntrefinfo{LastCall}{LASTCALL}{2018}
+{LASTCALL. The top 13 bitcoin, blockchain \& cryptocurrency apis.
+out. 2018.
+Dispon{\'\i}vel em:
+  \url{https://blog.rapidapi.com/bitcoin-blockchain-cryptocurrency-apis/}.
+  Acesso em: 17 mar. 2019.}
+
+\bibitem[Nogueira 2018]{nogueira2018}
+\abntrefinfo{Nogueira}{NOGUEIRA}{2018}
+{NOGUEIRA, M. História do comércio.
+\emph{estudo prático}, 2018.
+Dispon{\'\i}vel em:
+  \url{https://www.estudopratico.com.br/historia-do-comercio/}. Acesso em: 15
+  set. 2018.}
+
+\bibitem[Pribeream 2008-2013]{pribeream2013}
+\abntrefinfo{Pribeream}{PRIBEREAM}{2008-2013}
+{PRIBEREAM. \emph{Dinheiro}. 2008--2013. Dispon{\'\i}vel em:
+  \url{https://www.priberam.pt/dlpo/Dinheiro}. Acesso em: 15 set. 2018.}
+
+\bibitem[ROTHBARD 1995]{rothbard1995}
+\abntrefinfo{ROTHBARD}{ROTHBARD}{1995}
+{ROTHBARD, M. Fractional reserve banking.
+\emph{FEE - Foundation for Economic Education}, out. 1995.
+Dispon{\'\i}vel em:
+  \url{https://fee.org/articles/fractional-reserve-banking-part-ii/}. Acesso
+  em: 16 set. 2018.}
+
+\bibitem[Rouse 2016]{rouse2018}
+\abntrefinfo{Rouse}{ROUSE}{2016}
+{ROUSE, M. asymmetric cryptography (public key cryptography).
+\emph{SearchSecurity}, jun. 2016.
+Dispon{\'\i}vel em:
+  \url{https://searchsecurity.techtarget.com/definition/asymmetric-cryptography}.
+  Acesso em: 29 nov. 2018.}
+
+\bibitem[techopedia 2018]{techoAPI2018}
+\abntrefinfo{techopedia}{TECHOPEDIA}{2018}
+{TECHOPEDIA. Application programming interface (api).
+2018.
+Dispon{\'\i}vel em:
+  \url{https://www.techopedia.com/definition/24407/application-programming-interface-api}.
+  Acesso em: 17 mar. 2019.}
+
+\bibitem[Wagner et al. 2015]{wagner2015}
+\abntrefinfo{Wagner et al.}{WAGNER et al.}{2015}
+{WAGNER et al. Introdução à linguagem c{\#} e ao .net framework.
+jul. 2015.
+Dispon{\'\i}vel em:
+  \url{https://docs.microsoft.com/pt-br/dotnet/csharp/getting-started/introduction-to-the-csharp-language-and-the-net-framework}.
+  Acesso em: 29 nov. 2018.}
+
+\end{thebibliography}
