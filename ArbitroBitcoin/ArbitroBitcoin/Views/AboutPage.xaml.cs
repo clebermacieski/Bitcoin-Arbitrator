@@ -3,6 +3,7 @@ using System.ComponentModel;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace ArbitroBitcoin.Views
 {
@@ -14,6 +15,7 @@ namespace ArbitroBitcoin.Views
         public AboutPage()
         {
             InitializeComponent();
+            versao.Text = VersionTracking.CurrentVersion;
         }
     }
 }
