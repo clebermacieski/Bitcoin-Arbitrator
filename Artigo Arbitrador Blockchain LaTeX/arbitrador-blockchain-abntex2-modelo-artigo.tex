@@ -263,13 +263,26 @@ A tecnologia \textit{blockchain}, intimamente ligada as criptomoedas, pode ser c
 Criptomoedas impactam diretamente no sistema monetário atual:(a) A capacidade de distribuir, entre próprios indivíduos na rede, a possibilidade de realizar o trabalho de intermédio de transações, pode se mostrar, em diversos níveis, uma opção barata e eficaz na resolução do problema. (b) Utilizando a rede mundial de computadores, pode promover a liberdade a povos antes relegados o um sistema econômico restrito. (c) A auto regulação determinada na implementação do sistema pode acabar com os problemas gerados pela ingerência de governantes,  atuar na estabilização do sistema econômico mundial. (d) Devido ao sistema ser baseado em um código aberto, a segurança do mesmo pode ser verificada por qualquer um, assim como qualquer pesquisador pode buscar melhorar a implementação do sistema. (e) A tecnologia de livro-razão distribuído possui capacidades ainda pouco exploradas, para auto-processar transações, na qual regras podem ser persistidas dentro \textit{blockchain}, e serem executadas de maneira automática.
 
 \subsection{Objetivo Geral}
-Utilizar da tecnologia \textit{blockchain} para produzir um aplicativo para dispositivos móveis capaz de gerenciar transações que estabeleçam contratos inteligentes, delegando arbitragem a um ou mais participantes extras a transação. A implementação desta solução capacitará o usuário a realizar transações em dispositivos móveis de maneira mais segura e habilitar uma maior liberdade financeira dos indivíduos reduzindo custos e aumentando a competitividade de pequenos negociantes no mercado. A simplificação da utilização de terceiros na arbitragem de conflitos tornará o processo menos custoso para as partes, mantendo um nível de segurança adequado para diverso tipos de negociações comuns.
+Utilizar da tecnologia \textit{blockchain} para produzir um aplicativo para dispositivos móveis capaz de gerenciar transações, delegando arbitragem a um ou mais participantes extras a transação. A implementação desta solução visa capacitar o usuário a realizar transações, em dispositivos móveis, dando uma maior liberdade financeira aos indivíduos, reduzindo custos e aumentando a competitividade de pequenos negociantes no mercado. A simplificação da utilização de terceiros em arbitragem de conflitos busca tornar o processo menos custoso para as partes, mantendo um nível de segurança adequado para diversos tipos de negociações comuns.
 
 \subsection{Objetivos Específicos}
 \begin{itemize}
+    \item Pesquisar e analisar as dificuldades técnicas em transações de m-n participantens no \textit{blockchain Bitcoin}.
 	\item Implementar solução para criptomoedas para dispositivos móveis.
-	\item Explorar as capacidades da tecnologia \textit{blockchain}, principalmente para transferências e criação/execução de contratos inteligentes.
+	\item Explorar capacidades da tecnologia \textit{blockchain}, principalmente para transferências complexas e criação/execução de contratos inteligentes.
+	\item Realizar transações no \textit{blockchain Bitcoin}.
+	\item Realizar transações complexas (arbitradas) no \textit{blockchain Bitcoin}.
+	\item Utilizar tecnologias de programação para dispositivos móveis.
+	\item Fazer uso de linguagem de programação dotada de vasta gama de recursos embutidos, com disponibilidade de um \textit{framework} completo.
+	\item Utilizar preferencialmente \textit{frameworks}, API's ,softwares e ferramentas \textit{open source}.
+	\item Utilizar interfaces de desenvolvimento integradas, ferramentas de controle de código fonte e métodos ágeis de gerenciamento de projeto. 
 \end{itemize}
+
+\section{Método}
+Objetivando atingir os objetivos deste trabalho, foi realizada ampla pesquisa em materiais relacionados ao sistema monetário, a tecnologia \textit{blockchain}, a mais conhecida implementação desta, a rede \textit{peer-to-peer} \textit{Bitcoin}.
+O sistemas monetários atuais se correlacionam com o assunto tendo a pesquisa das teorias econômicas existentes relevância ao projeto. Em se tratando de tecnologias, o entendimento do funcionamento básico da estrutura que sustenta a rede \textit{Bitcoin} se mostrou útil na melhor compreensão das características e limitações da rede.
+Sistema monetário, segundo \apudonline{evMoeda}{ratti2001comercio}, é o conjunto das diversas moedas que circulam em um país, guardando entre si relações definidas de valor, de acordo com normas legais estabelecidas pelas autoridades monetárias.
+Um \textit{blockchain} é análogo a um livro contábil ou livro razão, contendo todas as transações já executadas em determinada rede. Ele está constantemente crescendo ao passo que os chamados mineradores adicionam novos "blocos" a ele (a cada 10 minutos) para registrar as transações mais recentes \cite{swan2015blockchain}.
 
 \section{Revisão Bibliográfica}
 
@@ -420,8 +433,6 @@ API & Integração & Suporte a  & Habilidades & Preço \\
 \end{table}
 
 Na  \autoref{tabela-apis} citaram-se API's comerciais. Para fins de desenvolvimento acadêmico, destaca-se a API QBit Ninja é uma API desenvolvida em código aberto, criada pelo mesmo autor do \textit{framework} C{\#} NBitcoin sendo dependente da classe "NBitcoin.Indexer" que por sua vez apoia-se no serviço de armazenamento Azure da Microsoft, devido a mesma ser de código aberto a de facilitada utilização e extensão \cite{qbitNinja}.
-
-\section{Método}
 
 
 \section{Desenvolvimento}
