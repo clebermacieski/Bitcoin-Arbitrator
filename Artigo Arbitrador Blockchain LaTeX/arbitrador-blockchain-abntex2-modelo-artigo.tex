@@ -279,12 +279,31 @@ Utilizar da tecnologia \textit{blockchain} para produzir um aplicativo para disp
 \end{itemize}
 
 \section{Método}
-Objetivando atingir os objetivos deste trabalho, foi realizada ampla pesquisa em materiais relacionados ao sistema monetário, a tecnologia \textit{blockchain}, a mais conhecida implementação desta, a rede \textit{peer-to-peer} \textit{Bitcoin}.
-O sistemas monetários atuais se correlacionam com o assunto tendo a pesquisa das teorias econômicas existentes relevância ao projeto. Em se tratando de tecnologias, o entendimento do funcionamento básico da estrutura que sustenta a rede \textit{Bitcoin} se mostrou útil na melhor compreensão das características e limitações da rede.
+A fim de atingir os objetivos deste trabalho, foi realizada ampla pesquisa em materiais relacionados ao sistema monetário, criptografia, a tecnologia \textit{blockchain}, a mais conhecida implementação desta, a rede \textit{peer-to-peer} Bitcoin, assim como a plataforma Xamarin, para programação de dispositivos móveis multiplataforma, juntamente a linguagem de programação C{\#} e o \textit{framawork} .NET, utilizados pela plataforma e \textit{framework open source} escolhidos (NBitcoin), além da linguagem de marcação XAML, usada na interface gráfica do aplicativo, e da API's  QBit Ninja utilizadas para consulta do \textit{blockchain Bitcoin} em sua rede de teste, a \textit{TestNet}.
+
+Os sistemas monetários atuais se correlacionam com o assunto tendo a pesquisa das teorias econômicas existentes relevância ao projeto. Em se tratando de tecnologias, o entendimento do funcionamento básico da estrutura que sustenta a rede Bitcoin se mostrou útil na melhor compreensão das características e limitações da rede, assim como o estudo da criptografia aplicada a segunrança da informação na rede validou a confiança na tecnologia. Do estudo das tecnologias de desenvolvimento de aplicações móveis, obteve-se a visão do melhor caminho a ser percorrido para o atingimento dos objetivos.
+
 Sistema monetário, segundo \apudonline{evMoeda}{ratti2001comercio}, é o conjunto das diversas moedas que circulam em um país, guardando entre si relações definidas de valor, de acordo com normas legais estabelecidas pelas autoridades monetárias.
-Um \textit{blockchain} é análogo a um livro contábil ou livro razão, contendo todas as transações já executadas em determinada rede. Ele está constantemente crescendo ao passo que os chamados mineradores adicionam novos "blocos" a ele (a cada 10 minutos) para registrar as transações mais recentes \cite{swan2015blockchain}.
+%Criptografia
+Criptografia por sua vez, é o estudo de técnicas matemáticas relacionadas a aspectos da segurança da informação como confidencialidade, integridade de dados, autenticação de entidades e autenticação de origem de dados \cite{katz1996handbook}.
+
+Um \textit{blockchain} é análogo a um livro contábil ou livro razão, contendo todas as transações já executadas em determinada rede. Ele está constantemente crescendo ao passo que os chamados mineradores adicionam novos "blocos" a ele (a cada 10 minutos) para registrar as transações mais recentes.
+Bitcoin é dinheiro digital. É uma moeda digital e um sistema de pagamento online no qual técnicas de encriptação são utilizadas para regular a geração de unidades de moeda e verificar a transferência de fundos, operando de maneira independente de um banco central. A terminologia pode se tornar confusa devido as palavras Bitcoin e \textit{blockchain} serem usada para se referir as três partes do conceito: a tecnologia base \textit{blockchain}, o protocolo/cliente através do qual transações são efetivadas, e a  atual criptomoeda \cite{swan2015blockchain}.
+
+%Xamarin
+Xamarin é uma solução para desenvolvimento móvel multi-plataforma. Xamarin oferece ao desenvolvedor um caminho para criar uma aplicação multi-plataforma, sem sacrificar o uso de componentes de interface de usuário nativos ou mesmo performance, enquanto permite a reutilização de código entre as plataformas.Isto é feito através da unificação do desenvolvimento em uma única linguagem de programação, o C{\#}. Ele utilizado o Mono \textit{runtime} que foi desenvolvido para trazer a linguagem C{\#} para os sistemas operacionais Linux e Macintosh \cite{dickson2013xamarin}.
+%C# e .NET
+C{\#} é uma linguagem de programação orientada a objetos, produzida pela Microsoft, visando o desenvolvimento para seu sistema operacional. Ela é uma linguagem independente,porém altamente relacionada ao chamado \textit{framework} .NET. O \textit{framework} .NET define um ambiente que suporta o desenvolvimento e execução de aplicações altamente distribuídas, baseadas em componentes. Ele habilita diferentes linguagens de computador a trabalhar juntas e provê segurança, portabilidade de programas, e um modelo de programação comum para inicialmente voltado a plataforma Windows. Para tal, ele define duas entidades de suma importância, o CLR(\textit{Common Language Runtime}), responsável por gerenciar a execução de programas, e a  .NET \textit{Framework Class Library}, uma vasta biblioteca de classes que dispõe de diversos recursos prontos para utilização em um programa \cite{schildt2010c}.
+%XAML
+Para criação da interface de usuário do aplicativo utilizou-se de XAML (\textit{eXtensible Aplication Markup Language}), linguagem de marcação  baseada em XML, criada pela Microsoft como uma alternativa a código de programação para instanciação e inicialização de objetos, assim como organização dos mesmos em hierarquias pais-filhos. XAML tem sido adaptado para diversas tecnologias dentro do .NET \textit{framework}, mas tem seu principal uso na definição de interfaces de usuário \cite{xamarinDocs}.
+
+%NBitcoin
+NBitcoin é a mais completa biblioteca Bitcoin para o \textit{framework} .NET. Ela implementa todas as mais relevantes BIP's(\textit{Bitcoin Improvement Proposals})e também provê acesso de baixo nível as primitivas Bitcoin, possibilitando e facilitando a construção de aplicações Bitcoin baseadas nela \cite{nBitcoin}.
+%QBitNinja
+QBit Ninja é uma API(\textit{Aplicattion Programming Interface}) \textit{blockchain open source} do mesmo criador da biblioteca NBitcoin. Ela funciona como um \textit{web service} capaz de consultar o \textit{blockchain}.
 
 \section{Revisão Bibliográfica}
+Falar sobre implementações de arbitragem conhecidas.
 
 \section{Referencial Teórico}
 
@@ -322,11 +341,11 @@ Criptografia de chave pública utilizada de \textit{one-way trapdoor functions}.
 O propósito da assinatura digital (ou de qualquer método de assinatura) é prover um meio pelo qual uma entidade tem sua identidade ligada a uma informação. Para tal, é comum a utilização de criptografia assimétrica.
 
 \subsection{Blockchain}
-O que é e como funciona...
+Como funciona...
 
 \subsection{Bitcoin}
 
-\subsubsection{Transações Bitcoin: Definição e Funcionamento}
+\subsubsection{Transações Bitcoin: Funcionamento}
 Transações permitem aos usuários da rede de criptomoedas o gasto de valores representados pelas próprias transações \cite{bitcoinDev}. Em termos simples uma transação diz a rede que o possuidor de um valor em criptomoeda autorizou a transferência da mesma para um novo dono. O novo dono pode criar outra transação para transferi-la para um subsequente e assim por diante \cite{masterBit}.
 Uma transação contém diversos dados com funcionalidades diversas usadas em contextos diversos. Abaixo segue a uma descrição simplificada de uma transação em um contexto comum, do tipo \textit{Pay-to-Public-Key-Hash} (que será definido mais adiante).
 
