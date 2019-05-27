@@ -279,7 +279,7 @@ Utilizar da tecnologia \textit{blockchain} para produzir um aplicativo para disp
 \end{itemize}
 
 \section{Método}
-A fim de atingir os objetivos deste trabalho, foi realizada ampla pesquisa em materiais relacionados ao sistema monetário, criptografia, a tecnologia \textit{blockchain}, a mais conhecida implementação desta, a rede \textit{peer-to-peer} Bitcoin, assim como a plataforma Xamarin, para programação de dispositivos móveis multiplataforma, juntamente a linguagem de programação C{\#} e o \textit{framawork} .NET, utilizados pela plataforma e \textit{framework open source} escolhidos (NBitcoin), além da linguagem de marcação XAML, usada na interface gráfica do aplicativo, e da API's  QBit Ninja utilizadas para consulta do \textit{blockchain Bitcoin} em sua rede de teste, a \textit{TestNet}.
+A fim de atingir os objetivos deste trabalho, foi realizada ampla pesquisa on-line em materiais relacionados ao sistema monetário, criptografia, a tecnologia \textit{blockchain}, a mais conhecida implementação desta, a rede \textit{peer-to-peer} Bitcoin, assim como a plataforma Xamarin, para programação de dispositivos móveis multiplataforma, juntamente a linguagem de programação C{\#} e o \textit{framawork} .NET, utilizados pela plataforma e \textit{framework open source} escolhidos (NBitcoin), além da linguagem de marcação XAML, usada na interface gráfica do aplicativo, e da API's  QBit Ninja utilizadas para consulta do \textit{blockchain Bitcoin} em sua rede de teste, a \textit{TestNet}.
 
 Os sistemas monetários atuais se correlacionam com o assunto tendo a pesquisa das teorias econômicas existentes relevância ao projeto. Em se tratando de tecnologias, o entendimento do funcionamento básico da estrutura que sustenta a rede Bitcoin se mostrou útil na melhor compreensão das características e limitações da rede, assim como o estudo da criptografia aplicada a segunrança da informação na rede validou a confiança na tecnologia. Do estudo das tecnologias de desenvolvimento de aplicações móveis, obteve-se a visão do melhor caminho a ser percorrido para o atingimento dos objetivos.
 
@@ -300,10 +300,17 @@ Para criação da interface de usuário do aplicativo utilizou-se de XAML (\text
 %NBitcoin
 NBitcoin é a mais completa biblioteca Bitcoin para o \textit{framework} .NET. Ela implementa todas as mais relevantes BIP's(\textit{Bitcoin Improvement Proposals})e também provê acesso de baixo nível as primitivas Bitcoin, possibilitando e facilitando a construção de aplicações Bitcoin baseadas nela \cite{nBitcoin}.
 %QBitNinja
-QBit Ninja é uma API(\textit{Aplicattion Programming Interface}) \textit{blockchain open source} do mesmo criador da biblioteca NBitcoin. Ela funciona como um \textit{web service} capaz de consultar o \textit{blockchain}.
+QBit Ninja é uma API(\textit{Aplicattion Programming Interface}) \textit{blockchain open source} do mesmo criador da biblioteca NBitcoin. Ela funciona como um \textit{web service} capaz de consultar o \textit{blockchain} \cite{qbitNinja}.
+
+Por fim, o trabalho foi desenvolvido através da combinação das ferramentas de programação com os resultados das pesquisas das tecnologias anteriormente elencadas.
 
 \section{Revisão Bibliográfica}
-Falar sobre implementações de arbitragem conhecidas.
+%Falar sobre implementações de arbitragem conhecidas.
+%Hayek and Frre Banking
+%MArketCap
+%Bubble
+%Bitrated
+%Novidade e especulação
 
 \section{Referencial Teórico}
 
@@ -344,6 +351,8 @@ O propósito da assinatura digital (ou de qualquer método de assinatura) é pro
 Como funciona...
 
 \subsection{Bitcoin}
+
+Bitcoin constitui-se de uma  coleção de conceitos e tecnologias que formaram a mais conhecida e valorizada criptomoeda do mercado. Unidades da moeda digital são utilizadas para guardar e transmitir valor pelos participantes da rede. Os seus usuários se comunicam através do protocolo Bitcoin, principalmente via internet, mas no entanto, outras redes podem ser utilizadas. O protocolo Bitcoin é disponibilizado de maneira \textit{open source} e pode rodar em uma larga gama de dispositivos de computação, incluindo computadores portáteis e smartphones, fazendo esta tecnologia altamente acessível \cite{masterBit}.
 
 \subsubsection{Transações Bitcoin: Funcionamento}
 Transações permitem aos usuários da rede de criptomoedas o gasto de valores representados pelas próprias transações \cite{bitcoinDev}. Em termos simples uma transação diz a rede que o possuidor de um valor em criptomoeda autorizou a transferência da mesma para um novo dono. O novo dono pode criar outra transação para transferi-la para um subsequente e assim por diante \cite{masterBit}.
@@ -409,14 +418,30 @@ Valores abaixo de 500 milhões no campo, estipulam o bloco futuro do \textit{blo
 Transações processadas na rede Bitcoin podem enviar Bitcoins para novos donos com um \textit{script Pay to Public Key Hash} ou P2PKH \textit{script}. Estes \textit{scripts} estão contidos na parte anteriormente citada, o \textit{output} da transação. Estes \textit{scripts} de travamento efetivamente travam a transação para um \textit{hash} de chave pública, mais conhecido como endereço Bitcoin. Eles podem ser destravados (gastos), essencialmente, pela apresentação de uma chave pública e de uma assinatura digital correspondente a chave privada da chave pública utilizada para a criação do endereço Bitcoin travado \cite{masterBit}.
 Também existem os chamados \textit{Pay to Script Hash}, ou P2SH. São \textit{scripts} de um tipo de transação mais novo, introduzido em 2012, que simplifica a criação de uma transação complexa, através da substituição dos \textit{scripts} de validação complexos por um assinatura digital dos mesmos \cite{masterBit}.
 
-\subsection{Ferramentas}
+\subsubsection{BIP's e Geração de Chaves Hierárquicas Determinísticas}
 
+\subsection{Ferramentas}
+%Licenciamento
 \subsubsection{C{\#} e .NET}
+
+%Async
+%Lambda
+%LINQ
+%Principais classes .NET: Dictionary...
+%Mencionar Visual Studio
+
+\subsubsection{Xamarin}
+%Multi-plataforma
+%MVVM
+%XAML
+%Data Binding
+%Command Pattern
+
 
 \subsubsection{\textit{Framework} NBitcoin}
 NBitcoin é uma biblioteca Bitcoin que utiliza o \textit{framework}.NET. A mesma é de código aberto e mantida pela comunidade e por seu criador, Nicolas Dorier. NBitcoin dispõe de ferramentas básicas para a implementação de softwares capazes de interagir com diferentes \textit{blockchains} e facilita a construção de soluções para criptomoedas usando a linguagem de programação C{\#}. Ela implementa a grande maioria dos BIP’s Bitcoin \cite{heHenry2018}.
 
-\subsubsection{API's}
+\subsubsection{API's e QBit Ninja}
 Uma API (\textit{Application Programing Interface}) ou Interface de Programação de Aplicação, é um conjunto de protocolos, rotina, funções e/ou comandos que programadores usam para desenvolver software ou facilitar a interação entre sistemas distintos \cite{techoAPI2018}. Existem inúmeras API’s disponíveis para criptomoedas, , cuja finalidade é fornecer informações sobre um ou mais \textit{blockchain’s} no qual as criptomoedas se baseiam. As mesmas podem ser classificadas quanto a  funcionalidades como: (a) Integração com Carteiras: capacidade de trabalhar com diversas carteiras. (b) Suporte a transações: capacidade de enviar ou receber as mesmas.(c)Preço. (d)Capacidades Especiais \cite{lastcAPIS}.
 
 \begin{table}[htb]
@@ -455,11 +480,48 @@ Na  \autoref{tabela-apis} citaram-se API's comerciais. Para fins de desenvolvime
 
 
 \section{Desenvolvimento}
-O software assim como a tecnologia de criptomoedas se baseiam na tecnologia de criptografia assimétrica a qual permite garantir a unicidade de cada transação na rede e promove a segurança na transmissão de dados, sendo largamente utilizada por diversas instituições do sistema monetário tradicional \cite{rouse2018}.
-O recurso de de \textit{scripts} de multi-assinatura definem uma condição onde N chaves públicas são gravada no script e pelo menos M dos controladores destas chaves devem fornecer assinaturas a fim de desbloquear os fundos representados nessa transação \cite{masterBit}. Esse tipo de \textit{script} será utilizado no projeto a fim de criar transações arbitradas.
-A fim de desenvolver o software será utilizada a linguagem C{\#}, que é uma linguagem de programação orientada a objetos, fortemente tipada que permite a criação de softwares robustos e seguros executados no .NET \textit{framework}, tendo um sintaxe parecida as principais linguagens de programação do mercado  \cite{wagner2015}.
-A fim de analisar as informações da rede, será utilizada a API web QBitNinja, que é hospedada por terceiros e disponibiliza informações sobre blocos , transações e endereços no \textit{blockchain} Bitcoin \cite{progblockC}.
-A rede de criptomoedas na qual o software se baseará será a do Bitcoin. Bitcoin constitui-se de uma  coleção de conceitos e tecnologias que formaram a mais conhecida e valorizada criptomoeda do mercado. Unidades da moeda digital são utilizadas para guardar e transmitir valor pelos participantes da rede. Os seus usuários se comunicam através do protocolo Bitcoin, principalmente via internet, mas no entanto, outras redes podem ser utilizadas. O protocolo Bitcoin é disponibilizado de maneira \textit{open source} e pode rodar em uma larga gama de dispositivos de computação, incluindo computadores portáteis e smartphones, fazendo esta tecnologia altamente acessível \cite{masterBit}.
+Através desta pesquisa foi produzido o aplicativo "Árbitro Bitcoin". Este aplicativo visou incorporar os objetivos deste trabalho através das tecnologias referenciadas, utilizando uma metodologia prática.
+O software assim como a tecnologia de criptomoedas se baseia na tecnologia de criptografia assimétrica, permitindo a geração de endereços de recebimento e garantindo a unicidade de cada transação na rede, tendo segurança na transmissão de dados. Este tipo de tecnologia de criptografia é largamente utilizado por diversas instituições do sistema monetário tradicional \cite{rouse2018} e a implementação básica de características encontram-se encapsuladas no \textit{framework} NBitcoin.
+
+O software produzido tem as seguintes funcionalidades: (a)Consulta e exibição de saldo de um determinado endereço da rede; (b)Criação de endereço de recebimento válido; (c)Criação de endereço de recebimento arbitrado válido; (d)Criação de transações comuns para endereço válido; (e)Criação de transações utilizando de um árbitro na transação; (f)Importação, assinatura e exportação de transação serializada, para permitir arbitragem de interações na rede.
+
+%Saldo e chave deterministica
+
+%Geração de endereço comum
+
+%Geração de endereço arbitrado
+
+%Envio simples
+
+%Envio Arbitrado
+
+%Arbitragem
+
+O recurso de de \textit{scripts} de multi-assinatura definem uma condição onde N chaves públicas são gravada no script e pelo menos M dos controladores destas chaves devem fornecer assinaturas a fim de desbloquear os fundos representados nessa transação \cite{masterBit}. Esse tipo de \textit{script} foi utilizado no projeto a fim de criar transações arbitradas.
+
+%Imagem: Telas de envio e recebimeto de negociação arbitrada
+
+No desenvolvimento do software foi utilizada a linguagem de programação C{\#}, que por sua vez utiliza o paradigma orientada a objetos, sendo fortemente tipada e permitindo a criação de softwares robustos e seguros executados no .NET \textit{framework}, mantendo um sintaxe parecida as principais linguagens de programação do mercado  \cite{wagner2015}. A utilização desta linguagem proveu um amplo arsenal de recursos prontos os quais foram utilizados, como a linguagem de consulta embutida (LINQ), expressões lambda, assessores de propriedades simplificados e as funcionalidades de paralelismo embutidas na própria linguagem, através das palavras-chave \textit{async} e \textit{await}.
+Estes recursos de paralelismo permitiram rodar processos demorados, como consultas a API web e difusão de transações, em um linha de processamento paralela, mantendo a interface do usuário responsiva.
+
+%Imagem: Mostrar uma classe com métodos assincronos
+
+A plataforma de desenvolvimento Xamarin propiciou um desenvolvimento multi-plataforma rápido e robusto, dando uma estrutura clara e concisa ao projeto. Além disso, a utilização do Ambiente de Desenvolvimento Integrado Visual Studio 2019 revelou-se altamente preparado para projetos do gênero, trazendo agilidade na construção inicial da estrutura básica projeto e auxiliando no controle de código fonte de maneira transparente e simples através do sistema de gerenciamento de código-fonte Git, utilizando do serviço de hospedagem Bitbucket. A IDE integra recurso de dispositivos virtuais Android (AVD - Android Virtual Devices) e IO's, sendo possível a utilização dos dispositivos para \textit{debug} diretamente na interface do Visual Studio, porém, exigindo um hardware robusto para uma execução performática. Devido a limitações de hardware no desenvolvimento em algumas máquinas utilizadas, obtou-se por utilizar o \textit{deploy} do projeto diretamente em dispositivo Android disponível, sendo essa modalidade igualmente compatível com recursos de \textit{debug} disponíveis nas máquinas virtuais, sem sofrer com lentidão em função do hardware utilizado para compilação, \textit{deploy} e \textit{debug}.
+
+%Imagem diretórios do projeto. Imagem de debug.
+
+A interface de usuário declarada em XAML mostrou-se simples de criar, e a implementação do padrão de design \textit{Model-View-View-Model} permitiu que o software fosse construído de maneira desacoplada e preparada para expansão. O recurso de \textit{data bindings} embtido no plataforma permitiu uma implementação transparente da atualização de dados do \textit{back-end} do aplicativo com seu interface gráfica de usuário. Já utilização do padrão de projeto \textit{Command} na manipulação de interações do usuário com botões e controles da interface a pesar de sua inicial complexidade, simplificou o disparo de eventos a serem tratados no \textit{back-end} assim como trouxe responsividade a interface gráfica, devido a capacidade embutida de gerenciar a ativação e desativação do controle de interface, enquanto se aguardada por resposta de \textit{threads} executadas paralelamente.
+
+%Imagem de  botão ativado e desativado em função de requisição assincrona
+
+A fim de analisar as informações da rede, foi utilizado serviço web da API QBit Ninja, que é hospedada por terceiros e disponibiliza informações sobre blocos, transações e endereços no \textit{blockchain} Bitcoin \cite{progblockC}, tanto em sua rede principal, a \textit{MainNet}, quanto em na rede utilizada para testes, a \textit{TestNet}.
+A rede de criptomoedas na qual o software se baseou foi a do Bitcoin, sendo até então utilizada a versão de testes da mesma.
+
+%Imagem assinatura da API
+
+As funcionalidades do aplicativo foram implementadas através do uso do \textit{framework} NBitcoin...
+
+
 
 % ---
 % Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
