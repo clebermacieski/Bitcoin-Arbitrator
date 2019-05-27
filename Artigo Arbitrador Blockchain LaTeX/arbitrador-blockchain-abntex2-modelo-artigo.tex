@@ -519,8 +519,15 @@ A rede de criptomoedas na qual o software se baseou foi a do Bitcoin, sendo até
 
 %Imagem assinatura da API
 
-As funcionalidades do aplicativo foram implementadas através do uso do \textit{framework} NBitcoin...
+As funcionalidades do aplicativo foram implementadas através do uso do \textit{framework} NBitcoin, utilizado nas classes "Negociador" e "ExploradorBlockchain". A classe "Negociador" define o método "Receber" e "ReceberArbitrado" e utiliza do método "RetornaPrivateKey" a fim de receber o BitcoinSecret da "chave mestra" vinculada a carteira e que define seu saldo.
 
+%Diagrama de sequência do recebimento
+
+A geração do endereço de recebimento normal utiliza apenas uma chave privada gerada com base na chave mestra determinística, abstraída na classe ExtKey do \textit{framework}. Já a criação do endereço de recebimento arbitrado necessita das chaves públicas do remetente e de um árbitro diretamente. Ambos os tipos de endereços de recebimento ao fim do processo são gerados no formato \textit{Pay to Public Key Hash} ou P2PKH.
+
+%Imagens de endereços gerados
+
+O envio de valores em Bitcoins é realizado pelos métodos "Enviar" da classe Negociador. O envio normal necessita do endereço do destinatário e do valor a ser enviado. O envio arbitrado necessita ?
 
 
 % ---
