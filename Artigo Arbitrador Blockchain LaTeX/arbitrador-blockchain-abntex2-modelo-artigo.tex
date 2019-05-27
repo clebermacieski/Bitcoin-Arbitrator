@@ -476,7 +476,7 @@ API & Integração & Suporte a  & Habilidades & Preço \\
 }
 \end{table}
 
-Na  \autoref{tabela-apis} citaram-se API's comerciais. Para fins de desenvolvimento acadêmico, destaca-se a API QBit Ninja é uma API desenvolvida em código aberto, criada pelo mesmo autor do \textit{framework} C{\#} NBitcoin sendo dependente da classe "NBitcoin.Indexer" que por sua vez apoia-se no serviço de armazenamento Azure da Microsoft, devido a mesma ser de código aberto a de facilitada utilização e extensão \cite{qbitNinja}.
+Na  \autoref{tabela-apis} citaram-se API's comerciais. Para fins de desenvolvimento acadêmico, destaca-se a API QBit Ninja é uma API desenvolvida em código aberto, criada pelo mesmo autor do \textit{framework} C{\#} NBitcoin sendo dependente da classe NBitcoin.Indexer que por sua vez apoia-se no serviço de armazenamento Azure da Microsoft, devido a mesma ser de código aberto a de facilitada utilização e extensão \cite{qbitNinja}.
 
 
 \section{Desenvolvimento}
@@ -523,11 +523,26 @@ As funcionalidades do aplicativo foram implementadas através do uso do \textit{
 
 %Diagrama de sequência do recebimento
 
-A geração do endereço de recebimento normal utiliza apenas uma chave privada gerada com base na chave mestra determinística, abstraída na classe ExtKey do \textit{framework}. Já a criação do endereço de recebimento arbitrado necessita das chaves públicas do remetente e de um árbitro diretamente. Ambos os tipos de endereços de recebimento ao fim do processo são gerados no formato \textit{Pay to Public Key Hash} ou P2PKH.
+A geração do endereço de recebimento normal utiliza apenas uma chave privada gerada com base na chave mestra determinística, abstraída na classe ExtKey do \textit{framework}. Já a criação do endereço de recebimento arbitrado necessita das chaves públicas do remetente, do destinatário e de um árbitro, diretamente. Ambos os tipos de endereços de recebimento ao fim do processo são gerados no formato \textit{Pay to Public Key Hash} ou P2PKH, não aparentando diferença de um endereço comum. O endereço arbitrado foi desenvolvido de maneira a requerer 2 de 3 assinaturas para que uma transação enviada para o mesmo possa ser posteriormente gasta.
 
 %Imagens de endereços gerados
 
-O envio de valores em Bitcoins é realizado pelos métodos "Enviar" da classe Negociador. O envio normal necessita do endereço do destinatário e do valor a ser enviado. O envio arbitrado necessita ?
+O envio de valores em Bitcoins é realizado pelos dois métodos "Enviar" da classe Negociador. O envio normal necessita do endereço do destinatário e do valor a ser enviado, onde então é criada a transação e divulgada na rede. 
+Já o envio utilizando um arbitro necessita que o remetente da negociação crie a mesma com base nas chaves publicas do arbitro e do destinatário, e defina quantas assinaturas são necessárias para que a transação seja gasta posteriormente. O aplicativo foi desenvolvido com três participantes em mente, sendo necessário a assinatura de dois dos três para que que um valor gasto em uma transação recebida na forma m-de-n seja gasta. A construção da transação para gastar um valor recebido na forma de multi-assinaturas requer o número de assinaturas conforme determinado em sua criação. O aplicativo busca resolver essa questão através da serialização e exportação para arquivo do objeto da classe \textit{Transaction}. 
+Quando o destinatário de uma transação arbitrada desejar gastar os valores recebidos nesta transação, ele envia o arquivo exportado apenas com os valores a serem gastos ao remetente da transação, que caso concorde, realizará a importação da transação, sua assinatura, a exportação da mesma e o envio de volta ao destinatário que realizará a importação do arquivo da transação, verificação se o remetente não alterou indevidamente a mesma, e realização do gasto da mesma (divulgar a transação na rede para validação dos mineradores).
+
+%Imagem de tela de envio
+
+Caso o destinatário da transação não cumpra com sua parte na negociação, enviando um produto ou prestando um serviço em desacordo com o ofertado, o remetente da mesma pode entrar em contato com o árbitro para resolver a questão.
+
+O Árbitro então pode: (a)Criar uma transação devolvendo os fundos para o remetente;
+(b)Criar uma transação pagando o destinatário conforme originalmente acordado; (c)Criar uma transação com percentuais dos valores para o remetente e para o destinatário, a fim de atingir um consenso. 
+
+Tendo o Árbitro conseguido um consenso quanto aos valores com mais um dos três participantes da transação, ele assina e exporta a mesma para que este participante importe, verifique os valores da mesma e realize a divulgação na rede.
+
+A transação pode conter uma taxa destinada ao árbitro, pagando por seus serviços. Como o Árbitro necessita da assinatura de mais uma participante da transação, o Árbitro não poderá sequestrar o desviar o valor da transação para algum endereço seu sem o consenso de pelo menos mais um participante da transação.
+
+%Tela arbitragem
 
 
 % ---
