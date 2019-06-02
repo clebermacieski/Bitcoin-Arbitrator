@@ -157,7 +157,7 @@
     <value>Endereço do Remetente</value>
   </data>
   <data name="GerarEnderecodeRecebimentoArbitrado" xml:space="preserve">
-    <value>Gerar Endereço Arbitrato</value>
+    <value>Gerar Endereço Arbitrado</value>
   </data>
   <data name="PubKeyArbitro" xml:space="preserve">
     <value>Chave Pública Árbitro</value>
@@ -176,5 +176,8 @@
   </data>
   <data name="ModificarTransacao" xml:space="preserve">
     <value>Modificar Transação</value>
+  </data>
+  <data name="Exportar" xml:space="preserve">
+    <value>Exportar</value>
   </data>
 </root>

@@ -11,6 +11,14 @@ namespace ArbitroBitcoin.Services
     /// </summary>
     class Negociador
     {
+        public static string Receber()
+        {
+            Key chavePrivada = RetonaPrivateKey().PrivateKey;
+            PubKey chavePublica = chavePrivada.PubKey;
+            BitcoinPubKeyAddress endereco = chavePublica.GetAddress(Network.TestNet);
+            return endereco.ToString();
+        }
+
         /// <summary>
         /// Este método gera um endereço baseado em três outros endereços, dos quais 2-3 tem que assinar a fim de gastar uma transação criada para tal endereço
         /// </summary>
@@ -36,37 +44,6 @@ namespace ArbitroBitcoin.Services
             Script scriptResgate = PayToMultiSigTemplate.Instance.GenerateScriptPubKey(2, new[] { segredoBitcoin.PubKey, pubKeyRemetente, pubKeyArbitro });
 
             return scriptResgate.Hash.GetAddress(rede).ToString();
-        }
-        public static string Receber()
-        {
-            Key chavePrivada = RetonaPrivateKey().PrivateKey;
-            PubKey chavePublica = chavePrivada.PubKey;
-            BitcoinPubKeyAddress endereco = chavePublica.GetAddress(Network.TestNet);
-            return endereco.ToString();
-        }
-
-        /// <summary>
-        /// Método que cria transação com arbitragem 2-3
-        /// Este método adiciona coins, assina e serializa um objeto a fim de que seja enviado para mais um dos participantes para que a transação possa ser assinada mais uma vez e transmitida ne rede de forma validável
-        /// </summary>
-        /// <param name="destino"></param>
-        /// <param name="valorAEnviar"></param>
-        /// <param name="enderecoArbitro"></param>
-        /// <param name="destino">Endereço de Destino</param>
-        /// <param name="valor">Quantia em BTC</param>
-        /// <param name="enderecoArbitro">Endereço Do Arbitro</param>
-        public static bool Enviar(string destino, decimal valorAEnviar, string enderecoArbitro = null)
-        {
-            valorAEnviar = 0.00000001m;
-            destino = "2N8MhUSTiw5JX8QCD4XoAZ2Qb5DcX9E5Qf6";
-            var bitcoinSecret = RetonaPrivateKey();
-            var rede = bitcoinSecret.Network;
-            TransactionBuilder construtor = rede.CreateTransactionBuilder();
-
-            //TODO: buildar a transação com os coins, assina-la e serializa-la a fim de que seja possível assina-la novamente a partir da tela do arbitro
-
-            return false;
-
         }
 
         /// <summary>
@@ -176,7 +153,7 @@ namespace ArbitroBitcoin.Services
             //TODO: Como Gerenciar txIDs? Iterar sobre txIds disponiveis no banco, somar seus valores até ter a transação + taxa
 
             /* Na transação origem, verificar qual outpoint bate com a respectiva private key*/
-
+            
             OutPoint outPoint = null;
             foreach (var coin in coinsDaTransacao)
             {
@@ -200,6 +177,27 @@ namespace ArbitroBitcoin.Services
             var bitcoinSecret = new BitcoinSecret(chavePrivada);
             var rede = bitcoinSecret.Network;
             return ExploradorBlockchain.RetornarSaldo(bitcoinSecret, rede);
+        }
+
+        /// <summary>
+        /// Método que cria transação com arbitragem 2-3 e a exporta para arquivo
+        /// Este método adiciona coins, assina e serializa um objeto a fim de que seja enviado para mais um dos participantes para que a transação possa ser assinada mais uma vez,
+        /// retornada, verificada e transmitida ne rede de forma validável
+        /// </summary>
+        /// <param name="destino">Endereço de Destino</param>
+        /// <param name="valor">Quantia em BTC</param>
+        public static bool Exportar(string destino, decimal valorAEnviar)
+        {
+            valorAEnviar = 0.00000001m;
+            destino = "2N8MhUSTiw5JX8QCD4XoAZ2Qb5DcX9E5Qf6";
+            var bitcoinSecret = RetonaPrivateKey();
+            var rede = bitcoinSecret.Network;
+            TransactionBuilder construtor = rede.CreateTransactionBuilder();
+
+            //TODO: buildar a transação com os coins, assina-la e serializa-la a fim de que seja possível assina-la novamente a partir da tela do arbitro
+
+            return false;
+
         }
     }
 }

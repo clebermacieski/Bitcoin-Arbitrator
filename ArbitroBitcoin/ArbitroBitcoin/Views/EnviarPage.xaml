@@ -12,10 +12,15 @@
         <StackLayout VerticalOptions="Center">
             <Entry x:Name="enderecoDestinoEntry"
                    Text="{Binding EnderecoDestino}"/>
-            <Entry x:Name="valorEntry" 
+            <Entry x:Name="valorEntry" HorizontalTextAlignment="End"
                    Text="{Binding Valor}"/>
-            <Entry x:Name="enderecoArbitroEntry" 
-                   Text="{Binding EnderecoArbitro}"/>
+            <StackLayout Orientation="Horizontal">
+            <Label Text="Exportar Transação" VerticalOptions="Center" />
+                <Switch x:Name="exportSwitch" 
+                        IsToggled="{Binding ExportSwitch}" 
+                        HorizontalOptions="EndAndExpand"
+                        Toggled="OnExportSwitchChanged"/>
+            </StackLayout>
             <Button x:Name="enviarButton"
                     Command="{Binding RealizarTransacaoCommand}" />
         </StackLayout>

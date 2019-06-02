@@ -160,6 +160,15 @@ namespace ArbitroBitcoin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exportar.
+        /// </summary>
+        internal static string Exportar {
+            get {
+                return ResourceManager.GetString("Exportar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Gerar Endereço.
         /// </summary>
         internal static string GerarEndereco {
@@ -169,7 +178,7 @@ namespace ArbitroBitcoin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Gerar Endereço Arbitrato.
+        ///   Looks up a localized string similar to Gerar Endereço Arbitrado.
         /// </summary>
         internal static string GerarEnderecodeRecebimentoArbitrado {
             get {

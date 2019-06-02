@@ -13,7 +13,7 @@ namespace ArbitroBitcoin.ViewModels
     {
         string enderecoDestino;
         decimal valor;
-        string enderecoArbitro;
+        bool exportSwitch;
         bool podeEnviar = true;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -28,10 +28,18 @@ namespace ArbitroBitcoin.ViewModels
             PodeEnviar(false);
 
             bool resultado = false;
-            await Task.Run(() => resultado = Negociador.Enviar(EnderecoDestino, Valor, EnderecoArbitro));
-            if (!resultado)
+            if (ExportSwitch)
             {
-                MessagingCenter.Send(this, "erro_envio");
+                MessagingCenter.Send(this, "erro_exportar");
+                //Exportar(string destino, decimal valorAEnviar)
+            }
+            else
+            {
+                await Task.Run(() => resultado = Negociador.Enviar(EnderecoDestino, Valor));
+                if (!resultado)
+                {
+                    MessagingCenter.Send(this, "erro_envio");
+                }
             }
 
             PodeEnviar(true);
@@ -73,19 +81,19 @@ namespace ArbitroBitcoin.ViewModels
                 return valor;
             }
         }
-        public string EnderecoArbitro
+        public bool ExportSwitch
         {
             set
             {
-                if (enderecoArbitro != value)
+                if (exportSwitch != value)
                 {
-                    enderecoArbitro = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("EnderecoArbitro"));
+                    exportSwitch = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ExportSwitch"));
                 }
             }
             get
             {
-                return enderecoArbitro;
+                return exportSwitch;
             }
         }
     }
