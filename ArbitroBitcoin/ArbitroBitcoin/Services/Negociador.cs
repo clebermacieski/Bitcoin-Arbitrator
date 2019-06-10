@@ -199,5 +199,17 @@ namespace ArbitroBitcoin.Services
             return false;
 
         }
+
+        /// <summary>
+        /// Método que importa arquivo de transação serializado para verificação.
+        /// </summary>
+        /// <returns></returns>
+        public static bool Importar()
+        {
+            //TODO: Desserializar a transação, e dispo-la para verificação.
+
+            return false;
+
+        }
     }
 }
