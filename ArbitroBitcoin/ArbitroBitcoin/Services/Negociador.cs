@@ -47,14 +47,13 @@ namespace ArbitroBitcoin.Services
         }
 
         /// <summary>
-        /// Método que envia valor para para determinado endereço com a possibilidade de usar um arbitro
-        /// Se houver arbitro envolvido, cria a transação, assina e serializa para enviar para a assinatura de m-n dos participantes
+        /// Método que envia valor para para determinado endereço
         /// </summary>
         public static bool Enviar(string destino, decimal valorAEnviar)
         {
             valorAEnviar = 0.00000001m;
             destino = "2N8MhUSTiw5JX8QCD4XoAZ2Qb5DcX9E5Qf6";
-            var bitcoinSecret = RetonaPrivateKey();  //TODO: Retorna private key, verifica saldo do outpoint e pega mais uma se não for o suficiente ou erro se não tiver
+            var bitcoinSecret = RetonaPrivateKey();                                                                                               //TODO: Retorna private key, verifica saldo do outpoint e pega mais uma se não for o suficiente ou erro se não tiver
             var rede = bitcoinSecret.Network;
 
             var transacao = Transaction.Create(rede);
@@ -69,9 +68,9 @@ namespace ArbitroBitcoin.Services
             });
 
             var enderecoDestino = BitcoinAddress.Create(destino, rede);
-            //{2N8MhUSTiw5JX8QCD4XoAZ2Qb5DcX9E5Qf6}
+            //Gerado= {2N8MhUSTiw5JX8QCD4XoAZ2Qb5DcX9E5Qf6}
 
-            var taxaDeMineracao = new Money(0.00008000m, MoneyUnit.BTC); //Taxa fixa em 80 bit
+            var taxaDeMineracao = new Money(0.00008000m, MoneyUnit.BTC); //Taxa fixa em 80 bit ou 8000 satoshis
 
             var quantiaTxInDisponivel = (Money)coinsDaTransacao[(int)outPointAGastar.N].Amount;
 
