@@ -9,7 +9,7 @@ namespace ArbitroBitcoin.ViewModels
 {
     class SaldoViewModel : INotifyPropertyChanged
     {
-        string saldo;
+        string saldo = "Buscando Saldo...";
         public event PropertyChangedEventHandler PropertyChanged;
         public SaldoViewModel() 
         {

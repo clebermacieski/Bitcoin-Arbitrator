@@ -7,10 +7,27 @@
         <local:SaldoViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding Saldo}"
-                   VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand" />
+        <StackLayout BackgroundColor="LightBlue">
+            <StackLayout VerticalOptions="CenterAndExpand" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="btc_sans.png" 
+                           HeightRequest="40" 
+                           WidthRequest="40"
+                           Grid.Row="0" Grid.Column="0"
+                           HorizontalOptions="End"/>
+                    <Label Text="{Binding Saldo}"
+                           FontSize="50"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           VerticalOptions="CenterAndExpand" 
+                           HorizontalOptions="Start" 
+                           Grid.Row="0" Grid.Column="1"/>
+                </Grid>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
