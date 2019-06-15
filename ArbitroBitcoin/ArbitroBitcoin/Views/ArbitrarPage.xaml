@@ -3,22 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ArbitroBitcoin.Views.ArbitrarPage" >
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="LightBlue">
             <Button x:Name="botaoImportarTransacao"
                     Text="ImportarTransação"
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand" 
-                    Clicked="OnButtonImportarTransacaoClicked"/>
+                    Clicked="OnButtonImportarTransacaoClicked"
+                    Style="{StaticResource BotaoAcao}"/>
             <Button x:Name="botaoAssinar"
                     Text="AssinarTransação"
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand"
-                    Clicked="OnButtonAssinarClicked" />
+                    Clicked="OnButtonAssinarClicked" 
+                    Style="{StaticResource BotaoAcao}"/>
             <Button x:Name="botaoModificarTransacao"
                     Text="ModificarTransação"
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand"
-                    Clicked="OnButtonModificarClicked" />
+                    Clicked="OnButtonModificarClicked" 
+                    Style="{StaticResource BotaoAcao}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -7,22 +7,47 @@
     <ContentPage.BindingContext>
         <local:EnviarViewModel/>
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Content>
-        <StackLayout VerticalOptions="Center">
-            <Entry x:Name="enderecoDestinoEntry"
-                   Text="{Binding EnderecoDestino}"/>
-            <Entry x:Name="valorEntry" HorizontalTextAlignment="End"
-                   Text="{Binding Valor}"/>
-            <StackLayout Orientation="Horizontal">
-            <Label Text="Exportar Transação" VerticalOptions="Center" />
-                <Switch x:Name="exportSwitch" 
+        <StackLayout BackgroundColor="LightBlue">
+            <BoxView HeightRequest="200">
+            </BoxView>
+            <StackLayout VerticalOptions="Center"
+                     BackgroundColor="LightBlue">
+                <Entry x:Name="enderecoDestinoEntry"
+                       Text="{Binding EnderecoDestino}"
+                       FontSize="Large"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="btc_sans.png" 
+                           HeightRequest="20" 
+                           WidthRequest="20"
+                           Grid.Row="0" Grid.Column="0"
+                           HorizontalOptions="Start"/>
+                    <Entry x:Name="valorEntry" 
+                           HorizontalTextAlignment="End"
+                           Text="{Binding Valor}"
+                           Keyboard="Numeric"
+                           FontSize="Large"
+                           Grid.Row="0" Grid.Column="1"/>
+                </Grid>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Exportar Transação"
+                           FontFamily="Bold"
+                           FontSize="Large"
+                           VerticalOptions="Center" />
+                    <Switch x:Name="exportSwitch" 
                         IsToggled="{Binding ExportSwitch}" 
                         HorizontalOptions="EndAndExpand"
                         Toggled="OnExportSwitchChanged"/>
+                </StackLayout>
+                <Button x:Name="enviarButton"
+                    Command="{Binding RealizarTransacaoCommand}" 
+                    Style="{StaticResource BotaoAcao}"/>
             </StackLayout>
-            <Button x:Name="enviarButton"
-                    Command="{Binding RealizarTransacaoCommand}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -27,7 +27,6 @@
                 </Frame>
                 <Button x:Name="gerarEndereco"
                         Text="GerarEndereco"
-                        HorizontalOptions="Center"
                         Command="{Binding RetornaEnderecoCommand}" 
                         Style="{StaticResource BotaoAcao}"/>
             </StackLayout>
@@ -52,7 +51,6 @@
                        FontSize="Medium"/>
                 <Button x:Name="gerarEnderecoArbitrado"
                         Text="GerarEnderecoArbitrado" 
-                        HorizontalOptions="Center"
                         Command="{Binding RetornaEnderecoArbitradoCommand}" 
                         Style="{StaticResource BotaoAcao}"/>
             </StackLayout>
