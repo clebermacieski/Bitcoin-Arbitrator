@@ -6,12 +6,13 @@
     <ContentPage.BindingContext>
         <local:SaldoViewModel/>
     </ContentPage.BindingContext>
-    <ContentPage.Content>
+    <ContentPage.Content >
         <StackLayout BackgroundColor="LightBlue">
-            <StackLayout VerticalOptions="CenterAndExpand" >
+            <StackLayout VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="Center">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="60" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Image Source="btc_sans.png" 
