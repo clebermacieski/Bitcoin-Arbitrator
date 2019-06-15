@@ -17,17 +17,19 @@
                 </BoxView>
                 <Frame BorderColor="Black">
                     <Label x:Name="labelEndereco"
-                       Text="{Binding EnderecoRecebimento}"
-                       HorizontalOptions="Center">
+                           Text="{Binding EnderecoRecebimento}"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnEnderecoLabelTapped" />
                         </Label.GestureRecognizers>
                     </Label>
                 </Frame>
                 <Button x:Name="gerarEndereco"
-                        Text="GerarEndereco" 
+                        Text="GerarEndereco"
                         HorizontalOptions="Center"
-                        Command="{Binding RetornaEnderecoCommand}" />
+                        Command="{Binding RetornaEnderecoCommand}" 
+                        Style="{StaticResource BotaoAcao}"/>
             </StackLayout>
             <StackLayout VerticalOptions="FillAndExpand"
                          HeightRequest="1">
@@ -35,8 +37,9 @@
                 </BoxView>
                 <Frame BorderColor="Black">
                     <Label x:Name="labelEnderecoArbitrado"
-                       Text="{Binding EnderecoRecebimentoArbitrado}"
-                       HorizontalOptions="Center">
+                           Text="{Binding EnderecoRecebimentoArbitrado}"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnEnderecoArbitradoLabelTapped" />
                         </Label.GestureRecognizers>
@@ -45,11 +48,13 @@
                 <Entry x:Name="enderecoRemetenteEntry" 
                        Text="{Binding EnderecoRemetente}"/>
                 <Entry x:Name="enderecoArbitroEntry" 
-                       Text="{Binding EnderecoArbitro}"/>
+                       Text="{Binding EnderecoArbitro}"
+                       FontSize="Medium"/>
                 <Button x:Name="gerarEnderecoArbitrado"
                         Text="GerarEnderecoArbitrado" 
                         HorizontalOptions="Center"
-                        Command="{Binding RetornaEnderecoArbitradoCommand}" />
+                        Command="{Binding RetornaEnderecoArbitradoCommand}" 
+                        Style="{StaticResource BotaoAcao}"/>
             </StackLayout>
             <BoxView VerticalOptions="Center">
             </BoxView>
