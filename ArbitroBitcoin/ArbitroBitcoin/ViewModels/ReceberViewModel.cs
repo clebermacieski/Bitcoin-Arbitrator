@@ -15,6 +15,7 @@ namespace ArbitroBitcoin.ViewModels
         string enderecoRecebimento;
         public event PropertyChangedEventHandler PropertyChanged;
         bool podeGerar = true;
+        bool podeGerarArbitrado = true;
         string enderecoRecebimentoArbitrado;
         string enderecoRemetente;
         string enderecoArbitro;
@@ -27,15 +28,29 @@ namespace ArbitroBitcoin.ViewModels
 
         private async Task GerarEnderecoArbitrado()
         {
-            PodeGerarEndereco(false);
-            await Task.Run(() => EnderecoRecebimentoArbitrado = Negociador.ReceberArbitrado(EnderecoRemetente, EnderecoArbitro));  //TODO
-            PodeGerarEndereco(true);
+            PodeGerarEnderecoArbitrado(false);
+            try
+            {
+                await Task.Run(() => EnderecoRecebimentoArbitrado = Negociador.ReceberArbitrado(EnderecoRemetente, EnderecoArbitro));  //TODO
+            }
+            catch (Exception)
+            {
+                EnderecoRecebimento = "Erro ao gerar o endereço arbitrado";
+            }
+            PodeGerarEnderecoArbitrado(true);
         }
 
         private async Task GerarEndereco()
         {
             PodeGerarEndereco(false);
-            await Task.Run(() => EnderecoRecebimento = Negociador.Receber());
+            try
+            {
+                await Task.Run(() => EnderecoRecebimento = Negociador.Receber());
+            }
+            catch (Exception)
+            {
+                EnderecoRecebimento = "Erro ao gerar o endereço";
+            }
             PodeGerarEndereco(true);
         }
 
@@ -43,6 +58,12 @@ namespace ArbitroBitcoin.ViewModels
         {
             podeGerar = v;
             ((Command)RetornaEnderecoCommand).ChangeCanExecute();
+        }
+
+        private void PodeGerarEnderecoArbitrado(bool v)
+        {
+            podeGerarArbitrado = v;
+            ((Command)RetornaEnderecoArbitradoCommand).ChangeCanExecute();
         }
 
         public string EnderecoRecebimento
