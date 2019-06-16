@@ -45,8 +45,9 @@ namespace ArbitroBitcoin.Services
 
             if (!broadcastResponse.Success)
             {
-                Console.Error.WriteLine("ErrorCode: " + broadcastResponse.Error.ErrorCode);
-                Console.Error.WriteLine("Error message: " + broadcastResponse.Error.Reason);
+                /*Console.Error.WriteLine("ErrorCode: " + broadcastResponse.Error.ErrorCode);
+                Console.Error.WriteLine("Error message: " + broadcastResponse.Error.Reason);*/
+                return false;
             }
             else
             {
@@ -54,8 +55,6 @@ namespace ArbitroBitcoin.Services
                 Console.WriteLine(transacao.GetHash());*/
                 return true;
             }
-
-            return false;
         }
 
         public static String RetornarSaldo(BitcoinSecret segredo, Network rede)

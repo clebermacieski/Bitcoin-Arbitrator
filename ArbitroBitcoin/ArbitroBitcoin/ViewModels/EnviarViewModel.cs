@@ -31,11 +31,18 @@ namespace ArbitroBitcoin.ViewModels
             if (ExportSwitch)
             {
                 MessagingCenter.Send(this, "erro_exportar");
-                //Exportar(string destino, decimal valorAEnviar)
+                //TODO: Exportar(string destino, decimal valorAEnviar)
             }
             else
             {
-                await Task.Run(() => resultado = Negociador.Enviar(EnderecoDestino, Valor));
+                try
+                {
+                    await Task.Run(() => resultado = Negociador.Enviar(EnderecoDestino, Valor));
+                }
+                catch
+                {
+                    MessagingCenter.Send(this, "erro_envio");
+                }
                 if (!resultado)
                 {
                     MessagingCenter.Send(this, "erro_envio");
