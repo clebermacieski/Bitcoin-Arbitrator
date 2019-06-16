@@ -175,7 +175,15 @@ namespace ArbitroBitcoin.Services
             string chavePrivada = "cUaDX2ECmotrvVH71puhfmRHSTCjUxUtV5cUipqkMnfLGhzLKHAn";
             var bitcoinSecret = new BitcoinSecret(chavePrivada);
             var rede = bitcoinSecret.Network;
-            return ExploradorBlockchain.RetornarSaldo(bitcoinSecret, rede);
+            var saldo = "0";
+            try
+            {
+                saldo = ExploradorBlockchain.RetornarSaldo(bitcoinSecret, rede);
+            }catch (Exception)
+            {
+                saldo = "Erro ao buscar o saldo";
+            }
+            return saldo;
         }
 
         /// <summary>
