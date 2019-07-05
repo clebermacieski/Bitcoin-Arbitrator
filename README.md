@@ -1,6 +1,6 @@
 # Árbitro Bitcoin
 
-[English](docs/readme-en.md)
+[English](docs/README-en.md)
 
 Aplicativo multiplataforma para criação, modificação e divulgação de transações com Bitcoins, utilizando multi-assinaturas, envolvendo um árbitro na transação para resolução de conflitos. 
 
