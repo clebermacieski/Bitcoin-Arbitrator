@@ -1,6 +1,6 @@
-# Árbitro Bitcoin
+# Bitcoin Arbitrator
 
-[Português](../readme.md)
+[Português-br](../README.md)
 
 Multi-platform app to create, modify, and broadcast transaction, using multi-signature, involving an arbitrator on the transaction to solve conflicts.
 
